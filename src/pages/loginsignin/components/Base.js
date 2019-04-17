@@ -1,16 +1,24 @@
 import styles from '../stylesheets/base.module.sass'
 import React from 'react'
 import FormInput from './FormInput'
+import Button from './Button'
+import Footer from './footer'
 
 export default function Base({
+  title,
   inputs,
   onInputBlur,
   onInputFocus,
   onInputChange,
-  errorMsg
+  errorMsg,
+  button_title,
+  footer_content
 }) {
   return (
     <div className={styles.outbox}>
+    <div className={styles.logo}>Zack Market</div>
+    <div className={styles.title_style}>{title}</div>
+    <div className={styles.border_style}></div>
       {
         inputs.map(({ name, validations }) => 
           <FormInput
@@ -24,7 +32,10 @@ export default function Base({
           />
         )
       }
+      <Button button_title={button_title}/>
+      <Footer content={footer_content}/>
     </div>
   )
 }
+
 

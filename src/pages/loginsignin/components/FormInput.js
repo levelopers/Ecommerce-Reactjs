@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '../stylesheets/formInput.module.sass'
+import capitalizeString from '../utils/capitalizeString'
 
 
 export default function FormInput({
@@ -12,13 +13,21 @@ export default function FormInput({
 }) {
   return (
     <div className={styles.outbox}>
-      <input
-        type="text"
-        name={name}
-        placeholder={name}
-        onBlur={(e) => onBlur(e, validate(validations, e.target.value))}
-      />
-      {errorMessage}
+      <div className={styles.label}>
+        <label htmlFor={name}>{capitalizeString(name)}</label>
+      </div>
+      <div className={styles.input}>
+        <input
+          type="text"
+          name={name}
+          placeholder={`  ${name}`}
+          onBlur={(e) => onBlur(e, validate(validations, e.target.value))}
+          onFocus={onFocus}
+        />
+      </div>
+      <div className={styles.errMsg}>
+        {errorMessage}
+      </div>
     </div>
   )
 }

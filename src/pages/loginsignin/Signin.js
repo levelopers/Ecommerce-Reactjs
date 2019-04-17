@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import styles from './stylesheets/signin.module.sass'
-import Base from './components/Base'
+import LoginSignin from './LoginSignin'
 import {
   validateExistence,
   validateEmail,
@@ -21,51 +20,27 @@ const INPUT_CONFIG = [
   },
   {
     name: "password",
-    validations: [validateExistence, validateLength(6,15), validateLowerCase, validateUpperCase]
+    validations: [validateExistence, validateLength(6, 15), validateLowerCase, validateUpperCase]
   },
   {
     name: "verifyPassword",
-    validations: [validateExistence, validateLength(6,15), validateLowerCase, validateUpperCase]
+    validations: [validateExistence, validateLength(6, 15), validateLowerCase, validateUpperCase]
   },
 ]
 
-export default class Signin extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-    for (const input of INPUT_CONFIG) {
-      this.state[input.name] = { errorMsg: '' }
-    }
-  }
-  handleBlur = (e, validResult) => {
-    const name = e.target.name
-    if (!validResult.isValid) {
-      this.setState({
-        [name]: { errorMsg: validResult.errorMsg }
-      })
-    }else{
-      this.setState({
-        [name]: { errorMsg: '' }
-      })
-    }
-  }
-  handleFocus = () => {
 
-  }
-  handleClick = () => {
-
-  }
-  render() {
-    return (
-      <div className={styles.outbox}>
-        <Base
-          inputs={INPUT_CONFIG}
-          onInputBlur={this.handleBlur}
-          onInputFocus={this.handleFocus}
-          onSubmit={this.handleClick}
-          errorMsg={this.state}
-        />
-      </div>
-    )
-  }
+export default function Signin() {
+  return (
+    <div>
+      <LoginSignin
+      INPUT_CONFIG={INPUT_CONFIG}
+      title="Signin"
+      footer_text="Do you have an account?"
+      footer_redirect="login"
+      />
+    </div>
+  )
 }
+
+
+
