@@ -10,6 +10,7 @@ export default function Base({
   onInputBlur,
   onInputFocus,
   onInputChange,
+  onSubmit,
   errorMsg,
   button_title,
   footer_content
@@ -32,7 +33,7 @@ export default function Base({
           />
         )
       }
-      <Button button_title={button_title}/>
+      <Button button_title={button_title} onClick={onSubmit}/>
       <Footer content={footer_content}/>
     </div>
   )

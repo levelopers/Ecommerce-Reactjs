@@ -16,10 +16,10 @@ const btnStyle={
   fontSize:'15px'
 }
 
-export default function Button({ button_title }) {
+export default function Button({ button_title,onClick }) {
   return (
     <div className="forminput_button" style={outStyle}>
-      <input type="button" value={button_title} style={btnStyle}/>
+      <input type="button" value={button_title} style={btnStyle} onClick={onClick}/>
     </div>
   )
 }

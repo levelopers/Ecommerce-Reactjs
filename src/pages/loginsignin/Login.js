@@ -20,7 +20,8 @@ const INPUT_CONFIG = [
   }
 ]
 
-export default function Signin() {
+export default function Login({postToken}) {
+  
   return (
     <div>
       <LoginSignin
@@ -28,6 +29,7 @@ export default function Signin() {
       title="Login"
       footer_text="Don't you have an account?"
       footer_redirect="signin"
+      submitAction={postToken}
       />
     </div>
   )

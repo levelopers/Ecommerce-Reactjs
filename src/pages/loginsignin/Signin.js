@@ -29,7 +29,7 @@ const INPUT_CONFIG = [
 ]
 
 
-export default function Signin() {
+export default function Signin({signin}) {
   return (
     <div>
       <LoginSignin
@@ -37,6 +37,7 @@ export default function Signin() {
       title="Signin"
       footer_text="Do you have an account?"
       footer_redirect="login"
+      submitAction={signin}
       />
     </div>
   )
