@@ -1,13 +1,16 @@
 import {
   POST_TOKEN_BEGIN,
   POST_TOKEN_SUCCESS,
-  POST_TOKEN_FAIL
+  POST_TOKEN_FAIL,
+  INSERT_TOKEN_SUCCESS,
+  INSERT_TOKEN_FAIL
 } from '../action/tokenAction'
 
 const initialState = {
-  userToken: {},
-  token_loading:false,
-  error: {}
+  user_token: {},
+  token_loading: false,
+  error: {},
+  insert_token_error: false
 }
 
 export default (state = initialState, action) => {
@@ -21,7 +24,7 @@ export default (state = initialState, action) => {
     case POST_TOKEN_SUCCESS:
       return {
         ...state,
-        userToken: action.payload.data.user_token,
+        user_token: action.payload.data.user_token,
         token_loading: false
       }
     case POST_TOKEN_FAIL:
@@ -29,6 +32,15 @@ export default (state = initialState, action) => {
         ...state,
         token_loading: false,
         error: action.payload.error.response.data
+      }
+    case INSERT_TOKEN_SUCCESS:
+      return {
+        user_token: action.payload,
+        insert_token_error: false
+      }
+    case INSERT_TOKEN_FAIL:
+      return {
+        insert_token_error: true
       }
     default:
       return state

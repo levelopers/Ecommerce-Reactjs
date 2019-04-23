@@ -1,7 +1,13 @@
 import {combineReducers} from 'redux'
-import tokenReducer from './tokenReducer'
-import signinReducer from './signinReducer'
+import token from './tokenReducer'
+import signin from './signinReducer'
+import department from './departmentReducer'
+import search from './searchReducer'
+import product from './productReducer'
 export default combineReducers({
-  tokenReducer,
-  signinReducer
+  token,
+  signin,
+  department,
+  search,
+  product
 })

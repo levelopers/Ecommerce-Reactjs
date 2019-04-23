@@ -1,25 +1,41 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import {connect } from 'react-redux'
+import {insertToken} from './redux/action/tokenAction'
 import Signin from './pages/loginsignin/Signin'
 import LoginContainer from './pages/loginsignin/LoginContainer'
 import SigninContainer from './pages/loginsignin/SigninContainer'
-import Dashboard from './pages/dashboard/Dashboard'
+import DashboardContainer from './pages/dashboard/DashboardContainer'
+import ProductOverview from './pages/productOverview/ProductOverviewContainer'
 import './App.css';
 
 class App extends Component {
+  componentDidMount(){
+    this.props.insertToken()
+  }
   render() {
     return (
       <div>
         <Router>
           <Switch>
             <Route path="/signin" component={SigninContainer}/>
+            {this.props.token&&[
+            <Route key="dashboard" path="/dashboard" component={DashboardContainer}/>,
+            <Route key="productOverview" path="/product-overview" component={ProductOverview}/>
+
+            ]}
             <Route path="/login" component={LoginContainer}/>
-            <Route path="/dashboard" component={Dashboard}/>
+            <Route exact path="/" component={LoginContainer}/>
           </Switch>
         </Router>
       </div>
     );
   }
 }
-
-export default App;
+const mapStoreToProps=state=>({
+  token:state.token.user_token
+})
+const mapDispatchToProps={
+  insertToken
+}
+export default connect(mapStoreToProps,mapDispatchToProps)(App);
