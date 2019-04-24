@@ -12,6 +12,19 @@ const serverCall = (config) => {
       "authorization": token
     }
   }
+  //interceptors handle network error
+  axios.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    function (error) {
+      if (!error.response) {
+        error.response = {
+          data: 'net work error'
+        }
+      }
+      return Promise.reject(error);
+    });
   config.baseURL = URL
   return axios(config)
 }

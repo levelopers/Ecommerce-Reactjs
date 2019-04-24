@@ -5,8 +5,8 @@ export default function Product({ title, color, price, image }) {
   return (
     <Card 
     border="primary" 
-    className="col-sm-6 col-md-4 col-lg-3 m-3"
-    
+    className="p-2"
+    style={{height:'100%'}}
     >
       <Card.Img variant="top" src={image} />
       <Card.Body>

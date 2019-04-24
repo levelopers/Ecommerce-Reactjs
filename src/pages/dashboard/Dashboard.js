@@ -3,24 +3,30 @@ import HeaderContainer from '../../components/header/headerContainer'
 import Product from './components/Product'
 import { Row } from 'react-bootstrap'
 
-export default function Dashboard({ products }) {
+export default function Dashboard(props) {
+  const { products } = props
   return (
     <div>
       <HeaderContainer />
-      <Row className="m-5">
+      <div style={{ display: 'flex', flexWrap: 'wrap', margin: '6%' }} >
         {products && products.map(p =>
-          <Product
+          <div
             key={p.title}
-            title={p.title}
-            price={`$${p.price} CAD`}
-            color={p.color}
-            image={p.imagePath}
-          />
+            className="col-sm-6 col-md-4 col-lg-3 m-3 "
+            onClick={()=>props.history.push(`/product-overview/${p._id}`)}>
+            <Product
+              title={p.title}
+              price={`$${p.price} CAD`}
+              color={p.color}
+              image={p.imagePath}
+            />
+          </div>
         )}
-      </Row>
+      </div>
     </div>
   )
 }
+
 
 
 

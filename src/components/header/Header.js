@@ -4,10 +4,17 @@ import DropList from './DropList'
 import { Navbar, Nav, Button, Form, FormControl, NavDropdown} from 'react-bootstrap'
 
 let search_text=''
-export default function Header({user_token,departments,search,search_result}) {
+export default function Header({
+  user_token,
+  departments,
+  search,
+  getProductsByCategory,
+  getAllProducts,
+  search_result
+}) {
   return (
-    <Navbar bg="light" expand="lg" >
-      <Navbar.Brand href="/">
+    <Navbar bg="light" expand="lg" className="fixed-top">
+      <Navbar.Brand href="/dashboard">
         <div style={logo_style}>
           Zack Market
         </div>
@@ -22,12 +29,13 @@ export default function Header({user_token,departments,search,search_result}) {
           {departments&&departments.map(d =>
             <DropList
               key={d.departmentName}
+              clickCategory={(c)=>getProductsByCategory(c)}
               department={d.departmentName}
               categories={d.categories.split(',')}
             />
           )}
           <Nav.Item>
-            <Nav.Link>All Product</Nav.Link>
+            <Nav.Link onClick={getAllProducts}>All Product</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link>Shopping Bag</Nav.Link>

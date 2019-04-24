@@ -2,6 +2,7 @@ import {connect} from 'react-redux'
 import Header from './Header'
 import {getDepartments} from '../../redux/action/departmentAction'
 import { search } from '../../redux/action/searchAction';
+import {getProductsByCategory,getAllProducts} from '../../redux/action/productAction'
 
 
 const mapStoreToProps=state=>({
@@ -12,7 +13,9 @@ const mapStoreToProps=state=>({
 
 const mapDispatchToProps=dispatch=>({
   getDepartments:dispatch(getDepartments()),
-  search:(t)=>dispatch(search(t))
+  search:(t)=>dispatch(search(t)),
+  getProductsByCategory:(c)=>dispatch(getProductsByCategory(c)),
+  getAllProducts:()=>dispatch(getAllProducts())
 })
 
 export default connect(mapStoreToProps,mapDispatchToProps)(Header)
