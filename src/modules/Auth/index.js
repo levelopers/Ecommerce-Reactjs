@@ -1,14 +1,12 @@
 class Auth {
   constructor() {
-    this.user_token = JSON.parse(localStorage.getItem('auth'))
-    this.token = this.user_token.token
-    this.userId = this.user_token.user_id
+    this.user_token = JSON.parse(localStorage.getItem('auth'))||{}
   }
   getToken() {
-    return this.token
+    return this.user_token.token
   }
   getUserId() {
-    return this.userId
+    return this.user_token.user_id
   }
   setUserToken(new_token) {
     this.user_token = new_token

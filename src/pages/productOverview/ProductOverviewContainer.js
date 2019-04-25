@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import ProductOverview from './ProductOverview'
 import {getProduct} from '../../redux/action/productAction'
 import {getVariantsByProductId} from '../../redux/action/variantsAction'
+import {postCart} from '../../redux/action/cartAction'
 
 const mapStoreToProps=state=>({
   product:state.product.product,
@@ -9,7 +10,8 @@ const mapStoreToProps=state=>({
 })
 const mapDispatchToProps={
   getProduct,
-  getVariantsByProductId
+  getVariantsByProductId,
+  postCart
 }
 
 export default connect(mapStoreToProps,mapDispatchToProps)(ProductOverview)

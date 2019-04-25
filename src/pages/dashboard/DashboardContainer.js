@@ -5,7 +5,7 @@ const mapStoreToProps = state => ({
   products: state.product.products
 })
 const mapDispatchToProps = dispatch => ({
-  getAllProducts: dispatch(getAllProducts())
+  getAllProducts: ()=>dispatch(getAllProducts())
 })
 
 export default connect(mapStoreToProps, mapDispatchToProps)(Dashboard)

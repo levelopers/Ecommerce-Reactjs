@@ -1,6 +1,6 @@
 import Auth from '../Auth'
 import axios from 'axios'
-
+import {insertToken} from '../../redux/action/tokenAction'
 // const URL = 'https://zack-ecommerce-nodejs.herokuapp.com'
 const URL = 'http://localhost:4000'
 

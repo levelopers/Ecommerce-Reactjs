@@ -17,6 +17,7 @@ export const postToken = (email, password) => dispatch => {
         type: POST_TOKEN_FAIL,
         payload: { error }
       })
+      return error
     })
 }
 

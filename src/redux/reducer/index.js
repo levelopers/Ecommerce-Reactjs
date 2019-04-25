@@ -5,6 +5,7 @@ import department from './departmentReducer'
 import search from './searchReducer'
 import product from './productReducer'
 import variant from './variantsReducer'
+import cart from './cartReducer'
 
 export default combineReducers({
   token,
@@ -12,5 +13,6 @@ export default combineReducers({
   department,
   search,
   product,
-  variant
+  variant,
+  cart
 })

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import {connect } from 'react-redux'
+import {registerNav}from './modules/Navigation'
 import {insertToken} from './redux/action/tokenAction'
 import Signin from './pages/loginsignin/Signin'
 import LoginContainer from './pages/loginsignin/LoginContainer'
 import SigninContainer from './pages/loginsignin/SigninContainer'
 import DashboardContainer from './pages/dashboard/DashboardContainer'
 import ProductOverview from './pages/productOverview/ProductOverviewContainer'
+import ShoppingBagContainer from './pages/shoppingBag/ShoppingBagContainer'
 import './App.css';
 
 class App extends Component {
@@ -16,16 +18,17 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Router>
+        <Router ref={registerNav}>
           <Switch>
             <Route path="/signin" component={SigninContainer}/>
             {this.props.token&&[
             <Route key="dashboard" path="/dashboard" component={DashboardContainer}/>,
-            <Route key="productOverview" path="/product-overview" component={ProductOverview}/>
-
+            <Route key="productOverview" path="/product-overview" component={ProductOverview}/>,
+            <Route key="ShoppingBagContainer" path="/bag" component={ShoppingBagContainer}/>
             ]}
             <Route path="/login" component={LoginContainer}/>
             <Route exact path="/" component={LoginContainer}/>
+            <Redirect to='/'/>
           </Switch>
         </Router>
       </div>

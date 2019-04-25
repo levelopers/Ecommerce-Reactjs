@@ -7,7 +7,10 @@ import {
   GET_PRODUCT_FAIL,
   GET_PRODUCTS_BY_CATEGORY_BEGIN,
   GET_PRODUCTS_BY_CATEGORY_SUCCESS,
-  GET_PRODUCTS_BY_CATEGORY_FAIL
+  GET_PRODUCTS_BY_CATEGORY_FAIL,
+  SEARCH_BEGIN,
+  SEARCH_SUCCESS,
+  SEARCH_FAIL
 } from '../action/productAction'
 
 const initialState = {
@@ -73,6 +76,24 @@ export default (state = initialState, action) => {
         loading: false,
         error: action.payload.error.response.data
       }
+    case SEARCH_BEGIN:
+    return {
+      ...state,
+      loading: true,
+      error: null
+    }
+    case SEARCH_SUCCESS:
+    return {
+      ...state,
+      loading: false,
+      products: action.payload.data.products
+    }
+    case SEARCH_FAIL:
+    return {
+      ...state,
+      loading: false,
+      error: action.payload.error.response.data
+    }
     default:
       return state
   }

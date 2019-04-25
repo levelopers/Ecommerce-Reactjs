@@ -1,8 +1,7 @@
 import {connect} from 'react-redux'
 import Header from './Header'
 import {getDepartments} from '../../redux/action/departmentAction'
-import { search } from '../../redux/action/searchAction';
-import {getProductsByCategory,getAllProducts} from '../../redux/action/productAction'
+import {getProductsByCategory,getAllProducts,search} from '../../redux/action/productAction'
 
 
 const mapStoreToProps=state=>({

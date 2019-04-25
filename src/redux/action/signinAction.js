@@ -12,9 +12,6 @@ export const signin=(fullname,email,password,verifyPassword)=>dispatch=>{
     }
   })
   .then(res=>{
-    console.log('signin res:\n');
-    console.log(res);
-    
     dispatch({
       type:POST_SIGNIN_SUCCESS,
       payload:res
@@ -22,14 +19,11 @@ export const signin=(fullname,email,password,verifyPassword)=>dispatch=>{
     return res
   })
   .catch(error=>{
-    console.log('signin err:\n');
-    console.log(error.response);
-    
     dispatch({
       type:POST_SIGNIN_FAIL,
       payload:{error}
     })
-    return error
+    throw error
   })
 }
 
