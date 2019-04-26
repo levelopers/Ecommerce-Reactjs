@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './dropList.module.sass'
 import { NavDropdown } from 'react-bootstrap'
 import jumpTo from '../../modules/Navigation'
 

@@ -1,14 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import '~bootstrap/scss/_functions'
+@import '~bootstrap/scss/_variables'
+@import '~bootstrap/scss/mixins/_breakpoints'
+
 .outbox
+  min-width: 320px
+  min-height: 568px
   width: 100vw
   height: 100vh
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
-  background: grey
+  background: rgb(244, 244, 244)
 
 .content_box
-  width: 80%
+  width: 70%
   height: 80%
   display: flex
   align-items: center
@@ -19,12 +26,14 @@
   display: flex
 
 .image
-  width: 50%
-  height: 100%
-  background: orange
+  max-width: 50%
+  // max-height: 100%
+  overflow: hidden
   img
     width: 100%
-    height: 100%
+    object-fit: cover
+
+    // height: 100%
   
 .context_outbox
   width: 50%
@@ -40,15 +49,17 @@
 
 .title
   color: blue
-  font-size: 20px
+  font-size: 1.5rem
+  font-family: 'Comfortaa', cursive;
 
 .description
   color: grey
-  font-size: 15px
+  font-size: 1rem
 
 .price
   color: blue
-  font-size: 20px
+  font-size: 1.5rem
+  font-family: 'Comfortaa', cursive;
 
 .border
   border-bottom: 2px dotted grey
@@ -56,10 +67,27 @@
 
 .btns
   width: 100%
-  margin: 20px 0
+  margin: 1rem 0
   display: flex
   justify-content: space-between
   button
     width: 45%
 
+@include media-breakpoint-down(lg) 
+  .content_box
+    width: 90%
 
+@include media-breakpoint-down(sm) 
+  .title
+    font-size:  1rem
+  .description
+    font-size: 0.7rem
+  .price
+    font-size: 1rem
+  .border
+    margin: 0.5rem -0.5rem
+  .btns
+    .btn  
+      font-size: 0.75rem
+      width: 47%
+      padding: 0.25rem 0 

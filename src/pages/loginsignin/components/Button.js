@@ -4,7 +4,7 @@ const outStyle={
   width:'80%',
   height:'30px',
   marginBottom:'10px',
-  // marginTop:'5px'
+  marginTop:'5px'
 }
 const btnStyle={
   width:'100%',

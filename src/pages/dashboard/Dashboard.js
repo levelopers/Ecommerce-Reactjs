@@ -12,18 +12,16 @@ export default class Dashboard extends Component {
       this.props.getAllProducts()
     }
   }
-
   render() {
     const { products } = this.props
-
     return (
-      <div>
+      <div style={dashboard_outbox}>
         <HeaderContainer />
-        <div style={{ display: 'flex', flexWrap: 'wrap', margin: '6%' }} >
+        <div style={dashboard_box}>
           {products && products.map(p =>
             <div
               key={p.title}
-              className="col-sm-6 col-md-4 col-lg-3 m-3 "
+              className="col-6 col-sm-4 col-md-4 col-lg-3 my-3 "
               onClick={() => this.props.history.push(`/product-overview/${p._id}`)}>
               <Product
                 title={p.title}
@@ -37,6 +35,16 @@ export default class Dashboard extends Component {
       </div>
     )
   }
+}
+var dashboard_outbox = {
+  minWidth: '320px',
+  minHeight: '568px'
+}
+var dashboard_box = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  margin: '6%',
+  marginTop: '70px'
 }
 
 

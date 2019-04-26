@@ -1,16 +1,45 @@
+@import '~bootstrap/scss/_functions'
+@import '~bootstrap/scss/_variables'
+@import '~bootstrap/scss/mixins/_breakpoints'
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
 .color_title
   color: black
   font-weight: bold
+  font-family: 'Comfortaa', cursive;
+  margin-bottom: 0.5rem
+
+.color_name
+  color: grey
+  font-family: 'Comfortaa', cursive;
 
 .sizes
   width: 100%
   color: black
   font-weight: bold
+  font-family: 'Comfortaa', cursive;
+
+.size_title
+  margin-bottom: 0.5rem
 
 .color_pic
   width: 100%
   height: 10%
+  margin-bottom: 1rem
   img
     width: 10%
-    margin-left: 10px
+    margin-right: 0.7rem
+
+@include media-breakpoint-down(sm) 
+  .color_title
+    font-size: 0.75rem
+    margin-bottom: 0.25rem
+  .color_name
+    font-size: 0.5rem
+  .size_title
+    font-size: 0.75rem
+    margin-bottom: 0.25rem
+  .color_pic
+    margin-bottom: 0.5rem
+    img
+      width: 20%

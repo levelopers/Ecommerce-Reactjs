@@ -1,0 +1,52 @@
+@import '~bootstrap/scss/_functions'
+@import '~bootstrap/scss/_variables'
+@import '~bootstrap/scss/mixins/_breakpoints'
+
+.table_body
+.id
+  font-size: 0.7rem
+.pic_outbox
+  max-width: 8rem
+.pic
+  display: flex
+  justify-content: center
+  align-items: center
+  img
+    max-width: 70%
+
+.title_outbox
+  display: flex
+  flex-direction: column
+
+.title
+  word-wrap: none !important
+  min-width: 6rem
+  margin-bottom: 1rem
+.qty_outbox
+  // padding: auto 0 !important
+.qty_content
+  display: flex
+  flex-wrap: nowrap
+
+.btn
+  padding: 0 0.5rem
+  margin: 0 0.5rem
+
+@include media-breakpoint-down(md) 
+  .btn
+    padding: 0 0.3rem
+    margin: 0 0.3rem  
+@include media-breakpoint-down(md) 
+  .title
+    font-size: 0.75rem
+    margin-bottom: 0.5rem
+  .id_title
+    font-size: 0.75rem
+  .btn
+    padding: 0 0.1rem
+    margin: 0 0.1rem 
+  th
+    padding: 0 !important
+    font-size: 0.75rem !important
+  td 
+    padding: 0 !important

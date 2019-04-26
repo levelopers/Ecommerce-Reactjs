@@ -17,11 +17,11 @@ export default function Base({
 }) {
   return (
     <div className={styles.outbox}>
-    <div className={styles.logo}>Zack Market</div>
-    <div className={styles.title_style}>{title}</div>
-    <div className={styles.border_style}></div>
+      <div className={styles.logo}>Zack Market</div>
+      <div className={styles.title_style}>{title}</div>
+      <div className={styles.border_style}></div>
       {
-        inputs.map(({ name, validations }) => 
+        inputs.map(({ name, validations }) =>
           <FormInput
             key={name}
             name={name}
@@ -33,8 +33,8 @@ export default function Base({
           />
         )
       }
-      <Button button_title={button_title} onClick={onSubmit}/>
-      <Footer content={footer_content}/>
+      <Button button_title={button_title} onClick={onSubmit} />
+      <Footer content={footer_content} />
     </div>
   )
 }

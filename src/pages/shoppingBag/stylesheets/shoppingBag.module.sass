@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import '~bootstrap/scss/_functions'
+@import '~bootstrap/scss/_variables'
+@import '~bootstrap/scss/mixins/_breakpoints'
+  
 .outbox
   width: 100vw
   min-height: 100vh
   display: flex
   justify-content: center
-  background: grey
+  background: rgb(244, 244, 244)
 
 .box
-  width: 60%
+  max-width: 60%
   margin-top: 10vh
 
 .content
@@ -15,10 +20,12 @@
 
 .title
   color: blue
-  font-size: 30px
+  font-size: 2rem
+  font-family: 'Comfortaa', cursive;
+
 
 .table
-
+  
 .process_box
   width: 100%
   display: flex
@@ -29,4 +36,12 @@
   font-size: 20px
   font-weight: bold
 
+@include media-breakpoint-down(md) 
+  .box
+    max-width: 70%
+@include media-breakpoint-down(sm) 
+  .box
+    max-width: 90%
+  .title
+    font-size: 1.5rem
   

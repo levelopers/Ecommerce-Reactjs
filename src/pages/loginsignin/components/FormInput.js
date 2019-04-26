@@ -20,7 +20,7 @@ export default function FormInput({
         <input
           type="text"
           name={name}
-          placeholder={`  ${name}`}
+          placeholder={name}
           onBlur={(e) => onBlur(e, validate(validations, e.target.value))}
           onFocus={onFocus}
         />

@@ -1,4 +1,3 @@
-import styles from './header.module.sass'
 import React from 'react'
 import DropList from './DropList'
 import { Navbar, Nav, Button, Form, FormControl, NavDropdown } from 'react-bootstrap'
@@ -13,10 +12,9 @@ export default function Header({
   search,
   getProductsByCategory,
   getAllProducts,
-  search_result
 }) {
   return (
-    <Navbar bg="light" expand="lg" className="fixed-top">
+    <Navbar bg="light" expand="lg" style={header_outbox} className="fixed-top">
       {/* logo */}
       <Navbar.Brand
         onClick={() => {
@@ -28,21 +26,21 @@ export default function Header({
           Zack Market
         </div>
       </Navbar.Brand>
-      {/* search bar */}
-      <Form inline className="ml-5">
-        <FormControl type="text" placeholder="Search" className=" mr-sm-2" onChange={handleChange} />
-        <Button
-          type="button"
-          onClick={() => {
-            search(search_text).then(res => jumpTo('/dashboard'))
-          }}
-        >
-          Search
-           </Button>
-      </Form>
-      {/* lists and dropdowns */}
+      {/* dropdowns */}
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Collapse id="basic-navbar-nav" >
+        {/* search bar */}
+        <Form inline className="mt-5 mt-lg-0 ml-lg-5" style={{ display: 'flex', flexWrap: 'nowrap' }}>
+          <FormControl type="text" placeholder="Search" className="mr-3" onChange={(e)=>{search_text = e.target.value}} />
+          <Button
+            type="button"
+            onClick={() => {
+              search(search_text).then(res => jumpTo('/dashboard'))
+            }}
+          >
+            Search
+           </Button>
+        </Form>
         <Nav variant="pills" className="ml-auto" style={list_style}>
           {departments && departments.map(d =>
             <DropList
@@ -76,14 +74,13 @@ export default function Header({
   )
 }
 
-function handleChange(e) {
-  search_text = e.target.value
+var header_outbox={
+  minWidth: '320px'
 }
-
 var logo_style = {
   width: '120px',
   height: '100%',
-  background: 'orange'
+  background: 'pink'
 }
 var list_style = {
   "color": 'blue'

@@ -42,7 +42,7 @@ export default class ProductOverview extends Component {
   addToBag = () => {
     this.props.postCart(
       this.state.id || this.props.location.pathname.split("/").slice(-1)[0]
-    ).then(res=>{
+    ).then(res => {
       jumpTo('/bag')
     })
   }
@@ -54,11 +54,14 @@ export default class ProductOverview extends Component {
         {this.props.product &&
           <div className={styles.content_box}>
             <div className={styles.content}>
+              {/* left image */}
               <div className={styles.image}>
                 <img src={this.state.pic || this.props.product.imagePath} alt="" />
               </div>
+              {/* right content box */}
               <div className={styles.context_outbox}>
                 <div className={styles.context}>
+                  {/* top descriptions */}
                   <div className={styles.title}>
                     {this.props.product.title}
                   </div>
@@ -67,8 +70,10 @@ export default class ProductOverview extends Component {
                   </div>
                   <div className={styles.price}>
                     ${this.props.product.price} CAD
-              </div>
+                  </div>
+                  {/* dotted border */}
                   <div className={styles.border}></div>
+                  {/* bottom descriptions */}
                   <div className={styles.variants}>
                     <Variants
                       color={this.state.color || this.props.product.color}
@@ -80,8 +85,8 @@ export default class ProductOverview extends Component {
                     />
                   </div>
                   <div className={styles.btns}>
-                    <Button onClick={this.addToBag} variant="outline-primary">Add to Bag</Button>
-                    <Button variant="outline-danger">Buy Now</Button>
+                    <Button className={styles.btn} onClick={this.addToBag} variant="outline-primary">Add to Bag</Button>
+                    <Button className={styles.btn} variant="outline-danger">Buy Now</Button>
                   </div>
                 </div>
               </div>
