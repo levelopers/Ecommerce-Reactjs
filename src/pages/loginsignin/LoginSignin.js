@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styles from './stylesheets/loginsignin.module.sass'
 import Base from './components/Base'
 import capitalizeString from './utils/capitalizeString'
+import validation from './utils/validation'
 import jumpTo from '../../modules/Navigation'
 export default class LoginSignin extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class LoginSignin extends Component {
       this.inputText[input.name] = ''
     }
   }
+  //validate input when blur
   handleBlur = (e, validResult) => {
     const name = e.target.name
     this.inputText[name] = e.target.value
@@ -26,31 +28,51 @@ export default class LoginSignin extends Component {
       })
     }
   }
+  // when focus, clear error message
   handleFocus = (e) => {
     const name = e.target.name
-    // when focus, clear error message
     this.setState({
       [name]: { errorMsg: '' }
     })
   }
+  //submit actions
   handleClick = () => {
+    //validate all input 
+    let canSubmit = true
+    for (const input of this.props.INPUT_CONFIG) {
+      if (!!!input.validations) continue
+      for (const v of input.validations) {
+        let checkResult = v.check(this.inputText[input.name])
+        canSubmit = canSubmit && checkResult
+        if (!checkResult) {
+          this.setState({
+            [input.name]: { errorMsg: v.errMsg }
+          })
+          break
+        }
+      }
+    }
+    if (!canSubmit) {
+      console.log('valid fail');
+      return
+    }
     if (this.props.title === 'Login') {
       const { email, password } = this.inputText
       this.props.submitAction(email, password)
-      .then(res=>{
-        jumpTo('/dashboard')
-      })
+        .then(res => {
+          jumpTo('/dashboard')
+        })
     }
     if (this.props.title === 'Signin') {
       const { fullname, email, password, verifyPassword } = this.inputText
       this.props.submitAction(fullname, email, password, verifyPassword)
-      .then(res=>{
-        jumpTo('/login')
-      })
-      .catch(err=>{
-        jumpTo('/signin')
-        throw err
-      })
+        .then(res => {
+          jumpTo('/login')
+        })
+        .catch(err => {
+          jumpTo('/signin')
+          throw err
+        })
     }
   }
   render() {

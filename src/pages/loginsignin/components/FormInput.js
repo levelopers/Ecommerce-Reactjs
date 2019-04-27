@@ -7,7 +7,6 @@ export default function FormInput({
   name,
   validations,
   errorMessage,
-  onChange,
   onBlur,
   onFocus,
 }) {

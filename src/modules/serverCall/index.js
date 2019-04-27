@@ -47,5 +47,4 @@ export const login = (email, password) => {
       Auth.setUserToken(res.data.user_token)
       return res
     })
-
 }

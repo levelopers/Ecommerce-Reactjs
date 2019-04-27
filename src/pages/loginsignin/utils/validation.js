@@ -23,7 +23,7 @@ export const validateEmail = new Validation(
   'invalid email'
 )
 export const validateLength = (min_len, max_len) => {
-  const regex = new RegExp(`(?=.{${min_len},${max_len}})`, 'g')// `some string` 模板字符串， es6新特性
+  const regex = new RegExp(`(?=.{${min_len},${max_len}})`, 'g')
   return new Validation(
     'input should within certain length',
     text => !!text.match(regex),
