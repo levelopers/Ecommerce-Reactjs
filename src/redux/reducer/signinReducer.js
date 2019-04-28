@@ -5,7 +5,7 @@ import {
 } from '../action/signinAction'
 
 const initialState = {
-  loading: false,
+  signin_loading: false,
   error: {},
 }
 
@@ -13,15 +13,15 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case POST_SIGNIN_BEGIN:
       return {
-        loading: true
+        signin_loading: true
       }
     case POST_SIGNIN_SUCCESS:
       return {
-        loading: false,
+        signin_loading: false,
       }
     case POST_SIGNIN_FAIL:
       return {
-        loading: false,
+        signin_loading: false,
         error: action.payload.error.response.data
       }
     default:

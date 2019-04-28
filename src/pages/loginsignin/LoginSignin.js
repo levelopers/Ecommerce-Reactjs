@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import styles from './stylesheets/loginsignin.module.sass'
 import Base from './components/Base'
 import capitalizeString from './utils/capitalizeString'
-import validation from './utils/validation'
 import jumpTo from '../../modules/Navigation'
+import loading_animation from '../../assets/images/loading-bars.svg'
+
+
 export default class LoginSignin extends Component {
   constructor(props) {
     super(props)
@@ -79,6 +81,11 @@ export default class LoginSignin extends Component {
     return (
       <div className={styles.outbox}>
         <div className={styles.box}>
+          {this.props.loading &&
+            <div className={styles.loading_background} >
+              <img src={loading_animation} className={styles.svg} alt="" />
+            </div>
+          }
           <Base
             title={this.props.title}
             inputs={this.props.INPUT_CONFIG}

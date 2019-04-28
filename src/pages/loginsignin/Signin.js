@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import LoginSignin from './LoginSignin'
 import {
   validateExistence,
@@ -29,7 +29,7 @@ const INPUT_CONFIG = [
 ]
 
 
-export default function Signin({signin}) {
+export default function Signin({signin,signin_loading}) {
   return (
     <div>
       <LoginSignin
@@ -38,6 +38,7 @@ export default function Signin({signin}) {
       footer_text="Do you have an account?"
       footer_redirect="login"
       submitAction={signin}
+      loading={signin_loading}
       />
     </div>
   )

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import LoginSignin from './LoginSignin'
 import {
   validateExistence,
@@ -20,20 +20,22 @@ const INPUT_CONFIG = [
   }
 ]
 
-export default function Login({postToken}) {
-  
+export default function Login({ postToken, login_loading }) {
   return (
     <div>
       <LoginSignin
-      INPUT_CONFIG={INPUT_CONFIG}
-      title="Login"
-      footer_text="Don't you have an account?"
-      footer_redirect="signin"
-      submitAction={postToken}
+        INPUT_CONFIG={INPUT_CONFIG}
+        title="Login"
+        footer_text="Don't you have an account?"
+        footer_redirect="signin"
+        submitAction={postToken}
+        loading={login_loading}
       />
     </div>
   )
 }
+
+
 
 
 

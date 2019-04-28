@@ -17,7 +17,7 @@ export default function FormInput({
       </div>
       <div className={styles.input}>
         <input
-          type="text"
+          type={name.indexOf('assword')?'password':'text'}
           name={name}
           placeholder={name}
           onBlur={(e) => onBlur(e, validate(validations, e.target.value))}
