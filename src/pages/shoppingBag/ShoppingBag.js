@@ -3,11 +3,12 @@ import Header from '../../components/header/headerContainer'
 import styles from './stylesheets/shoppingBag.module.sass'
 import { Button } from 'react-bootstrap'
 import Table from './components/Table'
+import jumpTo from '../../modules/Navigation'
 
 
 export default function ShoppingBag(props) {
-    const {totalPrice,items} = props.cart
-    const {postCart} = props
+  const { totalPrice, items } = props.cart
+  const { postCart } = props
   return (
     <div className={styles.outbox}>
       <Header />
@@ -18,8 +19,8 @@ export default function ShoppingBag(props) {
           </div>
           <div className={styles.table}>
             <Table
-            items={items||{}}
-            handleClick={(pid,increase,decrease)=>postCart(pid,increase,decrease)}
+              items={items || {}}
+              handleClick={(pid, increase, decrease) => postCart(pid, increase, decrease)}
             />
           </div>
           <div className={styles.process_box}>
@@ -27,9 +28,9 @@ export default function ShoppingBag(props) {
               Total: ${totalPrice}
             </div>
             <div className="my-3">
-              <Button variant="primary">
+              <Button onClick={() => jumpTo('/checkout')} variant="primary">
                 Checkout
-            </Button>
+              </Button>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import department from './departmentReducer'
 import product from './productReducer'
 import variant from './variantsReducer'
 import cart from './cartReducer'
+import checkout from './checkoutReducer'
 
 export default combineReducers({
   token,
@@ -12,5 +13,6 @@ export default combineReducers({
   department,
   product,
   variant,
-  cart
+  cart,
+  checkout
 })

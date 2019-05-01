@@ -9,7 +9,8 @@ import SigninContainer from './pages/loginsignin/SigninContainer'
 import DashboardContainer from './pages/dashboard/DashboardContainer'
 import ProductOverview from './pages/productOverview/ProductOverviewContainer'
 import ShoppingBagContainer from './pages/shoppingBag/ShoppingBagContainer'
-import './App.css';
+import CheckoutContainer from './pages/checkout/checkoutContainer'
+import CheckoutSuccess from './pages/checkoutSuccess/CheckoutSuccess'
 
 class App extends Component {
   componentDidMount(){
@@ -24,7 +25,9 @@ class App extends Component {
             {this.props.token&&[
             <Route key="dashboard" path="/dashboard" component={DashboardContainer}/>,
             <Route key="productOverview" path="/product-overview" component={ProductOverview}/>,
-            <Route key="ShoppingBagContainer" path="/bag" component={ShoppingBagContainer}/>
+            <Route key="ShoppingBagContainer" path="/bag" component={ShoppingBagContainer}/>,
+            <Route key="Checkout" path="/checkout" component={CheckoutContainer}/>,
+            <Route key="success" path="/success_page" component={CheckoutSuccess}/>,
             ]}
             <Route path="/login" component={LoginContainer}/>
             <Route exact path="/" component={LoginContainer}/>
