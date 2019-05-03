@@ -10,7 +10,10 @@ import {
   GET_PRODUCTS_BY_CATEGORY_FAIL,
   SEARCH_BEGIN,
   SEARCH_SUCCESS,
-  SEARCH_FAIL
+  SEARCH_FAIL,
+  FILTER_BEGIN,
+  FILTER_SUCCESS,
+  FILTER_FAIL
 } from '../action/productAction'
 
 const initialState = {
@@ -18,6 +21,7 @@ const initialState = {
   product: null,
   loading: false,
   error: null,
+  filter_result:null
 }
 
 export default (state = initialState, action) => {
@@ -77,23 +81,42 @@ export default (state = initialState, action) => {
         error: action.payload.error.response.data
       }
     case SEARCH_BEGIN:
-    return {
-      ...state,
-      loading: true,
-      error: null
-    }
+      return {
+        ...state,
+        loading: true,
+        error: null
+      }
     case SEARCH_SUCCESS:
-    return {
-      ...state,
-      loading: false,
-      products: action.payload.data.products
-    }
+      return {
+        ...state,
+        loading: false,
+        products: action.payload.data.products
+      }
     case SEARCH_FAIL:
-    return {
-      ...state,
-      loading: false,
-      error: action.payload.error.response.data
-    }
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error.response.data
+      }
+    case FILTER_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      }
+    case FILTER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        filter_result: action.payload.data.filter
+      }
+
+    case FILTER_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error.response.data
+      }
     default:
       return state
   }

@@ -11,6 +11,7 @@ import ShoppingBagContainer from './pages/shoppingBag/ShoppingBagContainer'
 import CheckoutContainer from './pages/checkout/checkoutContainer'
 import CheckoutSuccessContainer from './pages/checkoutSuccess/CheckoutSuccessContainer'
 import CheckoutCancel from './pages/checkoutCancel/CheckoutCancel'
+import AutoCompleteContainer from './components/autoComplete/AutoCompleteContainer'
 
 class App extends Component {
   componentDidMount(){
@@ -35,6 +36,7 @@ class App extends Component {
             <Redirect to='/'/>
           </Switch>
         </Router>
+        {/* <AutoCompleteContainer/> */}
       </div>
     );
   }

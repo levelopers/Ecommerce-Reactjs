@@ -1,5 +1,6 @@
 import React from 'react'
 import DropList from './DropList'
+import AutoComplete from '../autoComplete/AutoCompleteContainer'
 import { Navbar, Nav, Button, Form, FormControl, NavDropdown } from 'react-bootstrap'
 import jumpTo from '../../modules/Navigation'
 import Auth from '../../modules/Auth'
@@ -31,7 +32,8 @@ export default function Header({
       <Navbar.Collapse id="basic-navbar-nav" >
         {/* search bar */}
         <Form inline className="mt-5 mt-lg-0 ml-lg-5" style={{ display: 'flex', flexWrap: 'nowrap' }}>
-          <FormControl type="text" placeholder="Search" className="mr-3" onChange={(e)=>{search_text = e.target.value}} />
+          {/* <FormControl type="text" placeholder="Search" className="mr-3" onChange={(e)=>{search_text = e.target.value}} /> */}
+          <AutoComplete />
           <Button
             type="button"
             onClick={() => {
@@ -75,7 +77,8 @@ export default function Header({
 }
 
 var header_outbox={
-  minWidth: '320px'
+  minWidth: '320px',
+  maxHeight:'8vh'
 }
 var logo_style = {
   width: '120px',
