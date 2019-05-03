@@ -3,7 +3,7 @@ import styles from './stylesheets/loginsignin.module.sass'
 import Base from './components/Base'
 import capitalizeString from './utils/capitalizeString'
 import jumpTo from '../../modules/Navigation'
-import loading_animation from '../../assets/images/loading-bars.svg'
+import LoadingAnimation from '../../components/loadingAnimation'
 
 
 export default class LoginSignin extends Component {
@@ -82,9 +82,7 @@ export default class LoginSignin extends Component {
       <div className={styles.outbox}>
         <div className={styles.box}>
           {this.props.loading &&
-            <div className={styles.loading_background} >
-              <img src={loading_animation} className={styles.svg} alt="" />
-            </div>
+            <LoadingAnimation/>
           }
           <Base
             title={this.props.title}

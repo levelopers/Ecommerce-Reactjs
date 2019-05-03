@@ -1,14 +1,14 @@
 import { connect } from 'react-redux'
 import AutoComplete from './AutoComplete'
-import {filter} from '../../redux/action/productAction' 
+import { filter } from '../../redux/action/filterAction'
 
 const mapStoreToProps = state => ({
-  filter_result:state.product.filter_result,
-  error:state.product.error,
-  loading:state.product.loading
+  filter_result: state.filter.filter_result,
+  error: state.filter.error,
+  loading: state.filter.loading
 })
 
-const mapDispatchToProps={
+const mapDispatchToProps = {
   filter
 }
 

@@ -11,9 +11,6 @@ import {
   SEARCH_BEGIN,
   SEARCH_SUCCESS,
   SEARCH_FAIL,
-  FILTER_BEGIN,
-  FILTER_SUCCESS,
-  FILTER_FAIL
 } from '../action/productAction'
 
 const initialState = {
@@ -21,7 +18,6 @@ const initialState = {
   product: null,
   loading: false,
   error: null,
-  filter_result:null
 }
 
 export default (state = initialState, action) => {
@@ -93,25 +89,6 @@ export default (state = initialState, action) => {
         products: action.payload.data.products
       }
     case SEARCH_FAIL:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload.error.response.data
-      }
-    case FILTER_BEGIN:
-      return {
-        ...state,
-        loading: true,
-        error: null
-      }
-    case FILTER_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        filter_result: action.payload.data.filter
-      }
-
-    case FILTER_FAIL:
       return {
         ...state,
         loading: false,

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import HeaderContainer from '../../components/header/headerContainer'
 import Product from './components/Product'
-
+import LoadingAnimation from '../../components/loadingAnimation'
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -18,6 +18,9 @@ export default class Dashboard extends Component {
       <div style={dashboard_outbox}>
         <HeaderContainer />
         <div style={dashboard_box}>
+          {this.props.loading &&
+            <LoadingAnimation />
+          }
           {products && products.map(p =>
             <div
               key={p.title}

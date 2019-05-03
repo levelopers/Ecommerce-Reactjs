@@ -6,6 +6,7 @@ import product from './productReducer'
 import variant from './variantsReducer'
 import cart from './cartReducer'
 import checkout from './checkoutReducer'
+import filter from './filterReducer'
 
 export default combineReducers({
   token,
@@ -14,5 +15,6 @@ export default combineReducers({
   product,
   variant,
   cart,
-  checkout
+  checkout,
+  filter
 })
