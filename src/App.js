@@ -12,7 +12,7 @@ import CheckoutContainer from './pages/checkout/checkoutContainer'
 import CheckoutSuccessContainer from './pages/checkoutSuccess/CheckoutSuccessContainer'
 import CheckoutCancel from './pages/checkoutCancel/CheckoutCancel'
 import AutoCompleteContainer from './components/autoComplete/AutoCompleteContainer'
-
+import HeaderContainer from './components/header/headerContainer'
 class App extends Component {
   componentDidMount(){
     this.props.insertToken()
@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Router ref={registerNav}>
+        {/* <Router ref={registerNav}>
           <Switch>
             <Route path="/signin" component={SigninContainer}/>
             {this.props.token&&[
@@ -35,7 +35,8 @@ class App extends Component {
             <Route exact path="/" component={LoginContainer}/>
             <Redirect to='/'/>
           </Switch>
-        </Router>
+        </Router> */}
+        <HeaderContainer/>
         {/* <AutoCompleteContainer/> */}
       </div>
     );

@@ -33,7 +33,7 @@ export default class AutoComplete extends Component {
   render() {
     const r = this.props.filter_result
     return (
-      <div className={styles.outbox}>
+      <div className={styles.outbox} style={this.props.style}>
         <input
           type="text"
           onChange={this.handleChange}
