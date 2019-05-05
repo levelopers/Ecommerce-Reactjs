@@ -11,6 +11,9 @@ export default class AutoComplete extends Component {
   handleChange = (e) => {
     const input = e.target.value
     this.props.filter(input)
+    if(this.props.onChange){
+      this.props.onChange(input)
+    }
     this.setState({
       val: input
     })
@@ -21,9 +24,12 @@ export default class AutoComplete extends Component {
     })
   }
   handleBlur = () => {
-    this.setState({
-      isFocus: false
-    })
+    let blurTimer=null
+    blurTimer=setTimeout(() => {
+      this.setState({
+        isFocus: false
+      },()=>clearTimeout(blurTimer))
+    }, 100);
   }
   handleClick = (v) => {
     this.setState({

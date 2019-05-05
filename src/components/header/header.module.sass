@@ -1,11 +1,12 @@
-.navbar
+.outbox
+  display: flex
   align-items: flex-start
   min-width: 320px
   position: fixed
   top: 0
-  z-index: 2
+  z-index: 3
   width: 100vw
-  max-height: 8vh
+  height: 8vh
   background: grey
 
 .content
@@ -16,13 +17,19 @@
   height: 100%
   background: pink
 
+.right
+  display: flex 
+
 .search
+  display: flex
   align-items: flex-start
+  flex-wrap: nowrap
 
 .btn
   margin-left: 2rem
 
 .lists
+  display: flex
   color: blue
   word-break: none  
   white-space: nowrap

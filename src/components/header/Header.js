@@ -6,18 +6,29 @@ import jumpTo from '../../modules/Navigation'
 import Auth from '../../modules/Auth'
 import styles from './header.module.sass'
 
-let search_text = ''
 
 export default class Header extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      input: ''
+    }
+  }
+  handleChange = (v) => {
+    this.setState({
+      input: v
+    })
+  }
   render() {
-    const {user_token,
-  departments,
-  search,
-  getProductsByCategory,
-  getAllProducts} = this.props
+    const { user_token,
+      departments,
+      search,
+      getProductsByCategory,
+      getAllProducts } = this.props
     return (
       <div className={styles.outbox}>
         <div className={styles.left}>
+          {/* logo */}
           <div className={styles.logo}
             onClick={() => {
               getAllProducts()
@@ -26,16 +37,18 @@ export default class Header extends Component {
           >
             Zack Yin
           </div>
-
         </div>
         <div className={styles.right}>
           {/* search input */}
           <div className={styles.search}>
-            <AutoComplete style={{ width: '10rem' }} />
+            <AutoComplete
+              style={{ width: '10rem' }}
+              onChange={(v) => console.log(v)}
+            />
             <button
               className={styles.btn}
               onClick={() => {
-                search(search_text).then(res => jumpTo('/dashboard'))
+                search(this.state.input).then(res => jumpTo('/dashboard'))
               }}
             >
               Search
