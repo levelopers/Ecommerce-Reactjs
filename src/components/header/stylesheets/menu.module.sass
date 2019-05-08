@@ -1,0 +1,37 @@
+@import '../../../modules/mediaQuery/app'
+
+  
+.outbox
+  display: flex
+  margin: auto
+  font-size: 1.3rem
+  color: white !important
+
+.lists
+  display: flex
+  word-break: none  
+  white-space: nowrap
+
+.tag
+  padding: 0.8rem
+  white-space: nowrap
+  display: flex
+  align-items: center
+  // color: #007bff
+  &:hover
+    cursor: pointer
+    color: #0056b3
+
+@media screen and (max-width: $tablet)
+  .lists
+    display: flex
+    flex-direction: column
+
+  .outbox
+    display: flex
+    flex-direction: column-reverse
+    margin: 0
+    font-size: .8rem
+
+  .tag
+    border-bottom: 1px solid rgba(0,0,0,.5)

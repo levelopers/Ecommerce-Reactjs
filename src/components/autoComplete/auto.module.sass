@@ -2,17 +2,29 @@
   display: flex
   flex-direction: column
   align-items: flex-start
-  min-width: max-content
+  // min-width: max-content
   z-index: 3
+  position: relative
   input
-    border: 1px solid grey !important
-    box-shadow: none !important
+    // border: 1px solid grey 
+    border: none
+    outline: none
+    background: transparent
+    border-bottom: 1px solid black
+    box-shadow: none 
     padding: 0
-    // margin: auto
+    height: 2rem
+    caret-color: green
+    cursor: default
+  input::placeholder
+    padding-left: .5rem
+    color: white !important
 .sugges_outbox
   border: 1px solid grey
   min-width: min-content
   background: white
+  position: absolute
+  top: 2rem
 .sugges_box
 
 .sugges_category
@@ -33,3 +45,7 @@
   &:hover
     background: rgb(141, 232, 219)
     width: 100%
+    cursor: pointer
+
+
+  

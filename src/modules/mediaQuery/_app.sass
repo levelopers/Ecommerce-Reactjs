@@ -1,0 +1,31 @@
+//breakpoints  
+$mobileS: 320px;
+$mobileM: 375px;//iphone
+$mobileL: 425px;//plus 414px
+$tablet: 768px;
+$laptop: 1024px;
+$laptopL: 1440px;
+$desktop: 2560px;
+
+=device($point) 
+  @if $point == mobileS 
+    @media (min-width: $mobileS) 
+      @content
+  @else if $point == mobileM 
+    @media (min-width: $mobileM) 
+      @content
+  @else if $point == mobileL 
+    @media (min-width: $mobileL) 
+      @content
+  @else if $point == tablet 
+    @media (min-width: $tablet) 
+      @content
+  @else if $point == laptop 
+    @media (min-width: $laptop) 
+      @content
+  @else if $point == laptopL 
+    @media (min-width: $laptopL) 
+      @content
+  @else if $point == desktop 
+    @media (min-width: $desktop) 
+      @content

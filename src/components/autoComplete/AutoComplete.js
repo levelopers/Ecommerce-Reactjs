@@ -32,6 +32,9 @@ export default class AutoComplete extends Component {
     }, 100);
   }
   handleClick = (v) => {
+    if(this.props.suggest_value){
+      this.props.suggest_value(v)
+    }
     this.setState({
       val: v
     })
@@ -46,6 +49,7 @@ export default class AutoComplete extends Component {
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
           value={this.state.val}
+          placeholder="Search"
         />
         <div className={styles.sugges_outbox}>
           {

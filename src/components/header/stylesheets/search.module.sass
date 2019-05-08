@@ -1,0 +1,43 @@
+@import '../../../modules/mediaQuery/app'
+
+
+.outbox
+  display: flex
+  align-items: center
+  flex-wrap: nowrap
+  min-width: max-content
+  margin: 0 1rem
+
+.auto
+  width: max-content
+
+.btn
+  margin-left: 1rem
+
+@media screen and (max-width: $tablet)
+  .outbox
+    display: flex
+    flex-direction: column
+    margin: 0
+    padding: .5rem 0
+    font-size: .8rem
+    
+
+  .auto
+    width: 40vw
+    // overflow: hidden
+    div
+      input
+        width: 100%
+  
+  
+  .btn
+    width: 100%
+    margin: .5rem 0 0 0
+    button
+      width: 100%
+      background: white
+      padding: 0
+      margin: 0
+      border: none
+

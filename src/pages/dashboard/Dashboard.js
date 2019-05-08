@@ -41,13 +41,15 @@ export default class Dashboard extends Component {
 }
 var dashboard_outbox = {
   minWidth: '320px',
-  minHeight: '568px'
+  minHeight: '568px',
+  display:'flex'
 }
 var dashboard_box = {
+  position:'relative',
   display: 'flex',
   flexWrap: 'wrap',
   margin: '6%',
-  marginTop: '70px'
+  marginTop: '12vh'
 }
 
 

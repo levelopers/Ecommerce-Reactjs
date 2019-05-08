@@ -1,22 +1,37 @@
 import React, { Component } from 'react'
-import DropList from './DropList'
+import DropList from './components/DropList'
+import styles from './stylesheets/header.module.sass'
 import AutoComplete from '../autoComplete/AutoCompleteContainer'
-import { Navbar, Nav, Button, Form, FormControl, NavDropdown } from 'react-bootstrap'
+import UserHeader from './components/UserHeader'
+import Menu from './components/Menu'
+import Search from './components/Search'
 import jumpTo from '../../modules/Navigation'
-import Auth from '../../modules/Auth'
-import styles from './header.module.sass'
-
+import device, { size } from '../../modules/mediaQuery'
+import MediaQuery from 'react-responsive'
 
 export default class Header extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      input: ''
+      input: '',
+      isToggle: false
     }
   }
   handleChange = (v) => {
     this.setState({
       input: v
+    })
+  }
+  handleSuggest=(v)=>{
+    this.setState({
+      input: v
+    })
+  }
+  handleToggle = () => {
+    this.setState(prevState => {
+      return {
+        isToggle: !prevState.isToggle
+      }
     })
   }
   render() {
@@ -25,141 +40,100 @@ export default class Header extends Component {
       search,
       getProductsByCategory,
       getAllProducts } = this.props
+    let visibility = "hide"
+    if (this.state.isToggle) {
+      visibility = "show"
+    }
+    console.log(this.state);
+    
     return (
       <div className={styles.outbox}>
-        <div className={styles.left}>
-          {/* logo */}
-          <div className={styles.logo}
-            onClick={() => {
-              getAllProducts()
-              jumpTo('/dashboard')
-            }}
-          >
-            Zack Yin
-          </div>
-        </div>
-        <div className={styles.right}>
-          {/* search input */}
-          <div className={styles.search}>
-            <AutoComplete
-              style={{ width: '10rem' }}
-              onChange={(v) => console.log(v)}
+        <MediaQuery query={device.min.tablet}>
+          {/* top user header */}
+          <div className={styles.user_header}>
+            <UserHeader
+              user_token={user_token}
             />
-            <button
-              className={styles.btn}
-              onClick={() => {
-                search(this.state.input).then(res => jumpTo('/dashboard'))
-              }}
-            >
-              Search
-            </button>
-            {/* lists */}
-            <div className={styles.lists}>
-              {/* departments */}
-              {departments && departments.map(d =>
-                <DropList
-                  key={d.departmentName}
-                  clickCategory={(c) => getProductsByCategory(c)}
-                  department={d.departmentName}
-                  categories={d.categories.split(',')}
-                />
-              )}
-              <div className={styles.link}>
-                All Product
-              </div>
-              <div className={styles.link}>
-                Shopping Bag
-              </div>
-              <div className={styles.loggout}>
-                <NavDropdown title={`hello, ${user_token.user_name}`}>
-                  <NavDropdown.Item onClick={Auth.logout} href='/'>
-                    logout
-               </NavDropdown.Item>
-                </NavDropdown>
+          </div>
+          {/* menu header */}
+          <div className={styles.content}>
+            <div className={styles.left}>
+              {/* logo */}
+              <div className={styles.logo}
+                onClick={() => {
+                  getAllProducts()
+                  jumpTo('/dashboard')
+                }}
+              >
+                Zack Market
               </div>
             </div>
-
+            <div className={styles.mid}>
+              <Menu
+                departments={departments}
+                getProductsByCategory={getProductsByCategory}
+                getAllProducts={getAllProducts}
+              />
+            </div>
+            <div className={styles.right}>
+              <Search
+                search={search}
+                onChange={this.handleChange}
+                input_value={this.state.input}
+                handleSuggest={this.handleSuggest}
+              />
+            </div>
           </div>
-        </div>
-      </div>
+        </MediaQuery>
+        <MediaQuery query={device.max.tablet}>
+          <div className={styles.content}>
+            <div className={`${styles.toggle_outbox}`}>
+              {/* toggle content */}
+              <div id="toggle" className={styles[`${visibility}`]}>
+                <div className={styles.toggle_content}>
+                  <div className={styles.side_title}>
+                    MENU
+                  </div>
+                  <Search
+                    search={search}
+                    onChange={this.handleChange}
+                    input_value={this.state.input}
+                    handleSuggest={this.handleSuggest}
+                  />
+                  <div className={styles.side_title}>
+                   CATEGORY
+                  </div>
+                  <Menu
+                    departments={departments}
+                    getProductsByCategory={getProductsByCategory}
+                    getAllProducts={getAllProducts}
+                  />
+                </div>
+              </div>
+              {/* toggle icon */}
+              <div className={`${styles.toggle_icon} ${styles[`${visibility}`]}`} onClick={this.handleToggle}>
+                <div className={styles.bar1}></div>
+                <div className={styles.bar2}></div>
+                <div className={styles.bar3}></div>
+              </div>
+            </div>
+            {/* logo */}
+            <div className={styles.logo}
+              onClick={() => {
+                getAllProducts()
+                jumpTo('/dashboard')
+              }}
+            >
+              Zack 
+              Market
+            </div>
+          </div>
+        </MediaQuery>
+
+      </div >
     )
   }
 }
-
-
-// let search_text = ''
-// export default function Header({
-//   user_token,
-//   departments,
-//   search,
-//   getProductsByCategory,
-//   getAllProducts,
-// }) {
-//   return (
-//     <Navbar expand="lg" 
-//     // className={`fixed-top ${styles.navbar}`}
-//     className={styles.navbar}
-//     >
-//       {/* logo */}
-//       <Navbar.Brand
-//         onClick={() => {
-//           getAllProducts()
-//           jumpTo('/dashboard')
-//         }}
-//       >
-//         <div className={styles.logo}>
-//           Zack Market
-//         </div>
-//       </Navbar.Brand>
-//       {/* dropdowns */}
-//       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-//       <Navbar.Collapse className={styles.content} id="basic-navbar-nav" >
-//         {/* search bar */}
-//         <Form inline className={`mt-5 mt-lg-0 ml-lg-5 ${styles.search}`} >
-//           {/* <FormControl type="text" placeholder="Search" className="mr-3" onChange={(e)=>{search_text = e.target.value}} /> */}
-//           <AutoComplete style={{width:'10rem'}} />
-//           <Button
-//             type="button"
-//             className={styles.btn}
-//             onClick={() => {
-//               search(search_text).then(res => jumpTo('/dashboard'))
-//             }}
-//           >
-//             Search
-//            </Button>
-//         </Form>
-//         <Nav variant="pills" className={`ml-auto ${styles.lists}`} >
-//           {departments && departments.map(d =>
-//             <DropList
-//               key={d.departmentName}
-//               clickCategory={(c) => getProductsByCategory(c)}
-//               department={d.departmentName}
-//               categories={d.categories.split(',')}
-//             />
-//           )}
-//           <Nav.Item>
-//             <Nav.Link
-//               onClick={() => {
-//                 getAllProducts()
-//                 jumpTo('/dashboard')
-//               }}
-//             >
-//               All Product
-//             </Nav.Link>
-//           </Nav.Item>
-//           <Nav.Item>
-//             <Nav.Link onClick={() => jumpTo('/bag')}>Shopping Bag</Nav.Link>
-//           </Nav.Item>
-//           <NavDropdown title={`hello, ${user_token.user_name}`}>
-//             <NavDropdown.Item onClick={Auth.logout} href='/'>
-//               logout
-//               </NavDropdown.Item>
-//           </NavDropdown>
-//         </Nav>
-//       </Navbar.Collapse>
-//     </Navbar>
-//   )
-// }
 
 
 
