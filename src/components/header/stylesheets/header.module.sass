@@ -14,7 +14,6 @@
   display: flex
   height: 8vh
 
-
 .left
   display: flex
 
@@ -26,12 +25,14 @@
   align-items: center
   background: pink
   margin: 0 1rem
-  font-size: 2rem
+  font-size: 1.5rem
+  &:hover, &:focus
+    cursor: pointer
 
 .mid
   display: flex
   margin: auto
-  font-size: 1.3rem
+  font-size: 1.1rem
   color: white !important
 
 .right
@@ -39,37 +40,6 @@
   align-items: center
   margin: 0 1rem
 
-
-// .search
-//   display: flex
-//   align-items: center
-//   flex-wrap: nowrap
-//   min-width: max-content
-//   margin: 0 1rem
-
-// .auto
-//   width: max-content
-  
-// .btn
-//   margin-left: 1rem
-
-// .lists
-//   display: flex
-//   word-break: none  
-//   white-space: nowrap
-
-// .tag
-//   padding: 0.8rem
-//   white-space: nowrap
-//   display: flex
-//   align-items: center
-//   // color: #007bff
-//   &:hover
-//     cursor: pointer
-//     color: #0056b3
-
-
-  
 
 @media screen and (max-width: $tablet)
   .content
@@ -84,7 +54,8 @@
 
   .toggle_outbox
     display: flex
-    width: min-content
+    // width: min-content
+    width: 3rem
     // height: max-content
     flex-wrap: nowrap
     position: absolute
@@ -96,13 +67,15 @@
   .toggle_icon
     height: max-content
     margin: .6rem
-    &:hover, &:focus
+    &:hover, &:blur
       .bar1
         transform: rotate(-45deg) translate(-9px, 6px)
       .bar2
         opacity: 0
       .bar3
         transform: rotate(45deg) translate(-8px, -8px)
+    
+  
 
   .bar1, .bar2, .bar3
     width: 2rem
@@ -112,7 +85,8 @@
     transition: 0.4s;
 
   .toggle_content
-    width: 40vw
+    width: 80vw
+    min-width: 120px
     height: 100vh
     background: rgb(125,125,125)
     color: white
@@ -125,8 +99,16 @@
     background: rgb(65,65,65)
     font-size: 1rem
     padding: .2rem .2rem .2rem .5rem
+    display: flex
+    align-items: center
+    flex-wrap: nowrap
     
-
+  .side_title_close
+    font-size: 1.5rem
+    margin-left: auto
+    margin-right: 1rem
+    &:hover
+      cursor: pointer
 
   #toggle
     background-color: #FFE600;
@@ -136,11 +118,13 @@
     overflow: scroll;
 
   .hide
-    transform: translate3d(-40vw, 0, 0)
+    transform: translate3d(-80vw, 0, 0)
     transition: transform .5s linear
     
     
   .show
     transform: translate3d(0vw, 0, 0)
     transition: transform .5s linear
+    + .toggle_icon
+      display: none
   

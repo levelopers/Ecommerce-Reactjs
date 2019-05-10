@@ -22,7 +22,7 @@ export default class Header extends Component {
       input: v
     })
   }
-  handleSuggest=(v)=>{
+  handleSuggest = (v) => {
     this.setState({
       input: v
     })
@@ -32,6 +32,11 @@ export default class Header extends Component {
       return {
         isToggle: !prevState.isToggle
       }
+    })
+  }
+  closeToggle=()=>{
+    this.setState({
+      isToggle:false
     })
   }
   render() {
@@ -44,10 +49,9 @@ export default class Header extends Component {
     if (this.state.isToggle) {
       visibility = "show"
     }
-    console.log(this.state);
-    
     return (
       <div className={styles.outbox}>
+        {/* larger than 768px */}
         <MediaQuery query={device.min.tablet}>
           {/* top user header */}
           <div className={styles.user_header}>
@@ -85,6 +89,7 @@ export default class Header extends Component {
             </div>
           </div>
         </MediaQuery>
+        {/* smaller than 768px */}
         <MediaQuery query={device.max.tablet}>
           <div className={styles.content}>
             <div className={`${styles.toggle_outbox}`}>
@@ -93,6 +98,12 @@ export default class Header extends Component {
                 <div className={styles.toggle_content}>
                   <div className={styles.side_title}>
                     MENU
+                    <div 
+                    className={styles.side_title_close}
+                    onClick={this.closeToggle}
+                    >
+                     x
+                    </div>
                   </div>
                   <Search
                     search={search}
@@ -101,7 +112,7 @@ export default class Header extends Component {
                     handleSuggest={this.handleSuggest}
                   />
                   <div className={styles.side_title}>
-                   CATEGORY
+                    CATEGORY
                   </div>
                   <Menu
                     departments={departments}
@@ -124,8 +135,7 @@ export default class Header extends Component {
                 jumpTo('/dashboard')
               }}
             >
-              Zack 
-              Market
+              Zack Market
             </div>
           </div>
         </MediaQuery>

@@ -1,0 +1,42 @@
+
+.outbox
+  display: flex
+  align-items: center
+  margin: .5rem 0
+  label
+    margin: 0
+    display: flex
+    &:hover
+      cursor: pointer
+  input
+    opacity: 0
+    display: none
+    &:checked+label 
+      .checkbox
+        // background: blue
+        width: 16px
+        height: 8px
+        border-width: 0 0 1px 2px;
+        opacity: 1;
+        border-style: solid;
+        border-color: green
+        transform: rotateZ(-50deg) scale(1);
+        animation: check .2s ease-out
+@keyframes check 
+  0% 
+    opacity: 1;
+    transform: rotateZ(-50deg) scale(0);
+  100% 
+    opacity: 1;
+    transform: rotateZ(-50deg) scale(1.8);
+
+.checkbox
+  width: 1rem
+  height: 1rem
+  border: 1px solid grey
+  display: flex
+  justify-content: center
+  align-items: center
+  margin-right: .8rem
+  
+ 

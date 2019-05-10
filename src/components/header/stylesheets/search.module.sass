@@ -1,11 +1,9 @@
 @import '../../../modules/mediaQuery/app'
 
-
 .outbox
   display: flex
   align-items: center
-  flex-wrap: nowrap
-  min-width: max-content
+  width: 100%
   margin: 0 1rem
 
 .auto
@@ -13,7 +11,18 @@
 
 .btn
   margin-left: 1rem
-
+  border: 2px solid rgb(94, 114, 100)
+  border-radius: 5px
+  background: rgb(65,65,65)
+  &:hover
+    background: rgb(94, 114, 100)
+    button
+      color: white
+  button  
+    background: transparent
+    border: 0
+    color: white
+    
 @media screen and (max-width: $tablet)
   .outbox
     display: flex
@@ -21,22 +30,19 @@
     margin: 0
     padding: .5rem 0
     font-size: .8rem
-    
 
   .auto
-    width: 40vw
-    // overflow: hidden
+    width: 100%
+    padding: 0 1rem
     div
       input
         width: 100%
   
-  
   .btn
-    width: 100%
-    margin: .5rem 0 0 0
+    width: calc( 100% - 2rem)
+    margin: .5rem 1rem 0 1rem
     button
       width: 100%
-      background: white
       padding: 0
       margin: 0
       border: none

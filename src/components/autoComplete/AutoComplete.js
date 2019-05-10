@@ -4,7 +4,7 @@ export default class AutoComplete extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFocus: true,
+      isFocus: false,
       val: ''
     }
   }

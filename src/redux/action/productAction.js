@@ -96,6 +96,34 @@ export const search=(text)=>dispatch=>{
   })
 }
 
+export const applyFilters=(filter_string)=>dispatch=>{
+  dispatch({
+    type:APPLY_FILTERS_BEGIN,
+  })
+  return serverCall({
+    method:'GET',
+    url:`/products?${filter_string}`
+  })
+  .then(res=>{
+    dispatch({
+      type: APPLY_FILTERS_SUCCESS,
+      payload: res
+    })
+    return res
+  })
+  .catch(error=>{
+    dispatch({
+      type: APPLY_FILTERS_FAIL,
+      payload: {error}
+    })
+    return error
+  })
+}
+
+export const APPLY_FILTERS_BEGIN='APPLY_FILTERS_BEGIN'
+export const APPLY_FILTERS_SUCCESS='APPLY_FILTERS_SUCCESS'
+export const APPLY_FILTERS_FAIL='APPLY_FILTERS_FAIL'
+
 
 export const SEARCH_BEGIN='SEARCH_BEGIN'
 export const SEARCH_SUCCESS='SEARCH_SUCCESS'
