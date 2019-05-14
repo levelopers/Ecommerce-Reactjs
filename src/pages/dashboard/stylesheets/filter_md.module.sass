@@ -2,29 +2,52 @@
 
 @media screen and (max-width: $tablet)
   .outbox
-    height: 10vh
-    background-color: #fff;
+    width: 100vw
+    background: rgba(125,125,125,.2)
+    
 
+  .filter_box
+    width: 100%
+    height: 5vh
+    display: flex
+    align-items: center
+
+  .order_box
+    height: 5vh
+    display: flex
+    align-items: center
+    border-bottom: 1px solid black
+    margin-bottom: .2rem
+
+
+  .head_title
+    max-width: 10rem
+    margin: 0 1rem
+    display: flex
+    img
+      width: 20px
+      height: 20px
+      background: blue
+      margin-right: .5rem
+    .head_title_text
+      font-size: 1rem
+
+  .box
+    min-width: calc( 100% - 10rem)
+    height: 100%
+    display: flex
+    justify-content: space-around
+    align-items: center
+
+  .sub_title
+    height: 100%
+    display: flex
+    align-items: center
+    padding-bottom: 2px
+    &:hover, &:focus
+      border-bottom: 1px solid blue
+      cursor: pointer
   .title
-    font-size: 1.2rem
-
-  .select
-    display: inline-block;
-    border: 1px solid #1E333B;
-    border-radius: 0;
-    text-indent: 8px;
-    padding: 0 10px 0 0;
-    height: 34px;
-    line-height: 32px;
-    min-width: 178px;
-    font-weight: 200;
-    color: #8a8e9d;
-    background-position: right 10px top 5px;
-    background-color: transparent;
-    max-width: none;
-    option
-      font-weight: normal;
-      display: block;
-      white-space: pre;
-      min-height: 1.2em;
-      padding: 0px 2px 1px;
+    font-size: .8rem
+    padding: 0 .5rem    
+    

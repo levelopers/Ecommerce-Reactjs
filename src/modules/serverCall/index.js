@@ -1,4 +1,5 @@
 import Auth from '../Auth'
+import jumpTo from '../Navigation'
 import axios from 'axios'
 import qs from 'qs'
 import paypalConfig from '../../configs/paypalConfig'
@@ -22,8 +23,13 @@ const serverCall = (config) => {
     function (error) {
       if (!error.response) {
         error.response = {
-          data: 'net work error'
+          data: 'net work error',
+          status: 500
         }
+      }
+      if(error.response.status===401){
+        Auth.logout()
+        jumpTo('/login')
       }
       return Promise.reject(error);
     });

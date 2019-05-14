@@ -36,92 +36,94 @@ export default class Filter extends Component {
   }
   render() {
     return (
-      <div className={styles.outbox}>
+      <div>
         <MediaQuery query={device.min.tablet}>
-          <div className={styles.box}>
-            <div className={styles.title}>
-              FILTERS
+          <div className={styles.outbox}>
+            <div className={styles.box}>
+              <div className={styles.title}>
+                FILTERS
           <div className={styles.title_border}></div>
-            </div>
-            <div className={styles.content}>
-              {/* order */}
-              <div className={styles.block}>
-                <div className={styles.sub_title}>
-                  ORDER
               </div>
-                <Checkbox
-                  onChange={this.handleChange}
-                  name="Ascending"
-                />
-                <Checkbox
-                  onChange={this.handleChange}
-                  name="Descending"
-                />
+              <div className={styles.content}>
+                {/* order */}
+                <div className={styles.block}>
+                  <div className={styles.sub_title}>
+                    ORDER
               </div>
-              {/* department */}
-              <div className={styles.block}>
-                <div className={styles.sub_title}>
-                  DEPARTMENT
+                  <Checkbox
+                    onChange={this.handleChange}
+                    name="Ascending"
+                  />
+                  <Checkbox
+                    onChange={this.handleChange}
+                    name="Descending"
+                  />
+                </div>
+                {/* department */}
+                <div className={styles.block}>
+                  <div className={styles.sub_title}>
+                    DEPARTMENT
               </div>
-                <Checkbox
-                  onChange={this.handleChange}
-                  name="Men"
-                />
-                <Checkbox
-                  onChange={this.handleChange}
-                  name="Women"
-                />
+                  <Checkbox
+                    onChange={this.handleChange}
+                    name="Men"
+                  />
+                  <Checkbox
+                    onChange={this.handleChange}
+                    name="Women"
+                  />
+                </div>
+                {/* price */}
+                <div className={styles.block}>
+                  <div className={styles.sub_title}>
+                    PRICE
               </div>
-              {/* price */}
-              <div className={styles.block}>
-                <div className={styles.sub_title}>
-                  PRICE
+                  <Checkbox
+                    onChange={this.handleChange}
+                    name="Less Than $29"
+                  />
+                  <Checkbox
+                    onChange={this.handleChange}
+                    name="$29 - $39"
+                  />
+                  <Checkbox
+                    onChange={this.handleChange}
+                    name="$39 - $49"
+                  />
+                  <Checkbox
+                    onChange={this.handleChange}
+                    name="$49 - $89"
+                  />
+                  <Checkbox
+                    onChange={this.handleChange}
+                    name="Greater Than $89"
+                  />
+                </div>
               </div>
-                <Checkbox
-                  onChange={this.handleChange}
-                  name="Less Than $29"
-                />
-                <Checkbox
-                  onChange={this.handleChange}
-                  name="$29 - $39"
-                />
-                <Checkbox
-                  onChange={this.handleChange}
-                  name="$39 - $49"
-                />
-                <Checkbox
-                  onChange={this.handleChange}
-                  name="$49 - $89"
-                />
-                <Checkbox
-                  onChange={this.handleChange}
-                  name="Greater Than $89"
-                />
-              </div>
-            </div>
-            {/* filter tags */}
-            <div className={styles.tags}>
-              {Object.keys(this.state).map(n =>
-                this.state[n] &&
-                <div key={n} className={styles.tag}>
-                  <div className={styles.tag_content}>
-                    {n}
+              {/* filter tags */}
+              <div className={styles.tags}>
+                {Object.keys(this.state).map(n =>
+                  this.state[n] &&
+                  <div key={n} className={styles.tag}>
+                    <div className={styles.tag_content}>
+                      {n}
+                    </div>
+                    <div
+                      className={styles.tag_close}
+                      onClick={() => this.handleCloseTag(n)}
+                    >
+                      x
+                </div>
                   </div>
-                  <div
-                    className={styles.tag_close}
-                    onClick={() => this.handleCloseTag(n)}
-                  >
-                    x
-                </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
         </MediaQuery>
         <MediaQuery query={device.max.tablet}>
-          <Filter_md 
-          onChange={this.handleChange}
-          closeTag={this.handleCloseTag}
+          <Filter_md
+            onChange={this.handleChange}
+            closeTag={this.handleCloseTag}
           />
         </MediaQuery>
       </div>

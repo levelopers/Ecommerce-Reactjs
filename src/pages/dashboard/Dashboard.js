@@ -32,7 +32,7 @@ export default class Dashboard extends Component {
             />
           </div>
           {/* products */}
-          <div className={`row ${styles.products}`}>
+          {/* <div className={`row ${styles.products}`}>
             {products && products.map(p =>
               <div
                 key={p.title}
@@ -46,7 +46,7 @@ export default class Dashboard extends Component {
                 />
               </div>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     )

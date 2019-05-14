@@ -34,9 +34,9 @@ export default class Header extends Component {
       }
     })
   }
-  closeToggle=()=>{
+  closeToggle = () => {
     this.setState({
-      isToggle:false
+      isToggle: false
     })
   }
   render() {
@@ -98,11 +98,11 @@ export default class Header extends Component {
                 <div className={styles.toggle_content}>
                   <div className={styles.side_title}>
                     MENU
-                    <div 
-                    className={styles.side_title_close}
-                    onClick={this.closeToggle}
+                    <div
+                      className={styles.side_title_close}
+                      onClick={this.closeToggle}
                     >
-                     x
+                      x
                     </div>
                   </div>
                   <Search
@@ -139,7 +139,6 @@ export default class Header extends Component {
             </div>
           </div>
         </MediaQuery>
-
       </div >
     )
   }
