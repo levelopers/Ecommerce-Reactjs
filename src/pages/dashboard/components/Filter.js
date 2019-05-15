@@ -9,30 +9,51 @@ import Filter_md from './Filter_md'
 export default class Filter extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
-    this.checkbox_ref = {}
+    this.FILTER_CONFIG = {
+      order: ['Ascending', 'Descending'],
+      department: ['Men', 'Women'],
+      price: ['Less Than $29', '$29 - $39', '$39 - $49', '$49 - $89', 'Greater Than $89']
+    }
+    this.initialState = {}
+    this.state = this.initialState
   }
-  handleChange = (e) => {
-    const tagName = e.target.name
-    const isChecked = e.target.checked
+  handleChange = (e, category, name) => {
+    let tagName = ''
+    let isChecked = false
+    //handle div click
+    if (name) {
+      tagName = name.toUpperCase()
+      isChecked = !!!(this.state[category] && this.state[category].includes(name))
+    } else {
+      // handle input checkbox
+      tagName = e.target.name.toUpperCase()
+      isChecked = e.target.checked
+    }
     this.setState(prevState => {
       if (isChecked) {
         return {
-          [tagName]: isChecked
+          [category]: [...prevState[category] || [], tagName]
         }
       } else {
-        delete prevState[tagName]
-        return prevState
+        const new_prop_array = prevState[category].filter(n => n !== tagName)
+        return {
+          [category]: new_prop_array
+        }
+      }
+    }, () => {
+      this.props.applyFilters(generateFilterString(this.state))
+    })
+  }
+  handleCloseTag = (category, name) => {
+    this.setState(prevState => {
+      const new_prop_array = prevState[category].filter(n => n !== name)
+      return {
+        [category]: new_prop_array
       }
     }, () => this.props.applyFilters(generateFilterString(this.state)))
-    this.checkbox_ref[tagName] = e.target
   }
-  handleCloseTag = (name) => {
-    this.checkbox_ref[name].checked = false
-    this.setState(prevState => {
-      delete prevState[name]
-      return prevState
-    }, () => this.props.applyFilters(generateFilterString(this.state)))
+  clearAllFilter = () => {
+    this.setState({ order: [], price: [], department: [] }, () => this.props.applyFilters(''))
   }
   render() {
     return (
@@ -49,84 +70,81 @@ export default class Filter extends Component {
                 <div className={styles.block}>
                   <div className={styles.sub_title}>
                     ORDER
-              </div>
-                  <Checkbox
-                    onChange={this.handleChange}
-                    name="Ascending"
-                  />
-                  <Checkbox
-                    onChange={this.handleChange}
-                    name="Descending"
-                  />
+                  </div>
+                  {this.FILTER_CONFIG['order'].map(n =>
+                    <Checkbox
+                      key={n}
+                      onChange={this.handleChange}
+                      name={n}
+                      category='order'
+                      isChecked={this.state['order'] && this.state['order'].includes(n.toUpperCase()) || false}
+                    />
+                  )}
                 </div>
                 {/* department */}
                 <div className={styles.block}>
                   <div className={styles.sub_title}>
                     DEPARTMENT
-              </div>
-                  <Checkbox
-                    onChange={this.handleChange}
-                    name="Men"
-                  />
-                  <Checkbox
-                    onChange={this.handleChange}
-                    name="Women"
-                  />
+                  </div>
+                  {this.FILTER_CONFIG['department'].map(n =>
+                    <Checkbox
+                      key={n}
+                      onChange={this.handleChange}
+                      name={n}
+                      category='department'
+                      isChecked={this.state['department'] && this.state['department'].includes(n.toUpperCase()) || false}
+                    />
+                  )}
                 </div>
                 {/* price */}
                 <div className={styles.block}>
                   <div className={styles.sub_title}>
                     PRICE
-              </div>
-                  <Checkbox
-                    onChange={this.handleChange}
-                    name="Less Than $29"
-                  />
-                  <Checkbox
-                    onChange={this.handleChange}
-                    name="$29 - $39"
-                  />
-                  <Checkbox
-                    onChange={this.handleChange}
-                    name="$39 - $49"
-                  />
-                  <Checkbox
-                    onChange={this.handleChange}
-                    name="$49 - $89"
-                  />
-                  <Checkbox
-                    onChange={this.handleChange}
-                    name="Greater Than $89"
-                  />
+                  </div>
+                  {this.FILTER_CONFIG['price'].map(n =>
+                    <Checkbox
+                      key={n}
+                      onChange={this.handleChange}
+                      name={n}
+                      category='price'
+                      isChecked={this.state['price'] && this.state['price'].includes(n.toUpperCase()) || false}
+                    />
+                  )}
                 </div>
+              </div>
+              <div className={styles.clear_btn} onClick={this.clearAllFilter}>
+                <button>Clear All</button>
               </div>
               {/* filter tags */}
               <div className={styles.tags}>
-                {Object.keys(this.state).map(n =>
-                  this.state[n] &&
-                  <div key={n} className={styles.tag}>
-                    <div className={styles.tag_content}>
-                      {n}
-                    </div>
-                    <div
-                      className={styles.tag_close}
-                      onClick={() => this.handleCloseTag(n)}
-                    >
-                      x
-                </div>
-                  </div>
-                )}
+                {
+                  Object.keys(this.state).map(c => (
+                    this.state[c] && this.state[c].map(n => (
+                      <div key={n} className={styles.tag}>
+                        <div className={styles.tag_content}>
+                          {n}
+                        </div>
+                        <div
+                          className={styles.tag_close}
+                          onClick={() => this.handleCloseTag(c, n)}
+                        >
+                          x
+                      </div>
+                      </div>
+                    ))))}
               </div>
             </div>
           </div>
-        </MediaQuery>
+        </MediaQuery >
         <MediaQuery query={device.max.tablet}>
           <Filter_md
             onChange={this.handleChange}
-            closeTag={this.handleCloseTag}
+            clear={this.clearAllFilter}
+            configs={this.FILTER_CONFIG}
+            selected_name={this.state}
           />
         </MediaQuery>
-      </div>
+      </div >
     )
   }
 }

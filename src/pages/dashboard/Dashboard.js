@@ -5,6 +5,7 @@ import LoadingAnimation from '../../components/loadingAnimation'
 import Filter from './components/Filter'
 import styles from './stylesheets/dashboard.module.sass'
 
+
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +33,7 @@ export default class Dashboard extends Component {
             />
           </div>
           {/* products */}
-          {/* <div className={`row ${styles.products}`}>
+          <div className={`row ${styles.products}`}>
             {products && products.map(p =>
               <div
                 key={p.title}
@@ -46,7 +47,7 @@ export default class Dashboard extends Component {
                 />
               </div>
             )}
-          </div> */}
+          </div>
         </div>
       </div>
     )

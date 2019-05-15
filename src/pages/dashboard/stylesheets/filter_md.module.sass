@@ -3,22 +3,52 @@
 @media screen and (max-width: $tablet)
   .outbox
     width: 100vw
-    background: rgba(125,125,125,.2)
+
+  .panels
+    margin-left: 1rem
+    margin-top: .2rem
+    display: flex
+
+  .panel
+    background: grey
+    margin-right: 1rem
+    border-radius: 8px
+    padding: .3rem
+    color: white
+    cursor: pointer
+  
+  .content
+    width: 100%
+    display: none
+    margin-top: .5rem
+    overflow: hidden
+    transform: translateX(-100vw)
     
+  .show_content
+    display: block
+    transform: translateX(0)
+    transition: -webkit-transform 1s linear
+    -webkit-transform: translateX(0)
+    -webkit-transition: transform 1s linear
+    -moz-transition: transform 1s linear
+    -o-transition: transform 1s linear
 
   .filter_box
     width: 100%
     height: 5vh
     display: flex
     align-items: center
+    background: rgba(125,125,125,.2)
+    position: relative
+    margin-bottom: 5vh
 
   .order_box
+    width: 100%
     height: 5vh
     display: flex
     align-items: center
-    border-bottom: 1px solid black
     margin-bottom: .2rem
-
+    background: rgba(125,125,125,.2)
 
   .head_title
     max-width: 10rem
@@ -39,15 +69,44 @@
     justify-content: space-around
     align-items: center
 
-  .sub_title
-    height: 100%
+  .selection
     display: flex
-    align-items: center
-    padding-bottom: 2px
-    &:hover, &:focus
-      border-bottom: 1px solid blue
-      cursor: pointer
-  .title
-    font-size: .8rem
-    padding: 0 .5rem    
+    flex-direction: column
+    height: 100%
+    .sub_selection
+      height: 0
+      width: 0
+      display: none
+      // width: 100vw
+      // height: 5vh
+      position: absolute
+      top: 100%
+      left: 0
+      padding-top: .2rem
+      overflow: hidden
+      flex-wrap: wrap
+      transition: height .2s linear
+      &:hover, &:focus, &:active
+        width: 100vw
+        min-height: 5vh
+        height: max-content
+        display: block
+    &:hover, &:focus, &:active 
+      .sub_selection   
+        width: 100vw
+        min-height: 5vh
+        height: max-content
+        display: block
+
+@media screen and (max-width: $mobileL)
+  .head_title
+    .head_title_text
+      font-size: .8rem
+
+  .filter_box
+    margin-bottom: 6vh
+
+
+  
+  
     
