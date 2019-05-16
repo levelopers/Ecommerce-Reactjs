@@ -1,52 +1,42 @@
-@import '~bootstrap/scss/_functions'
-@import '~bootstrap/scss/_variables'
-@import '~bootstrap/scss/mixins/_breakpoints'
+@import '../../../modules/mediaQuery/app'
 
-.table_body
+
+.outbox
+  font-size: 1rem
 .id
-  font-size: 0.7rem
+  font-size: 0.7em
 .pic_outbox
-  max-width: 8rem
-.pic
+  max-width: 6em
+  padding: 0
   display: flex
   justify-content: center
   align-items: center
   img
-    max-width: 70%
+    max-width: calc(100% - 1.3em)
 
 .title_outbox
   display: flex
   flex-direction: column
+  width: max-content
+  margin: 0
 
 .title
   word-wrap: none !important
-  min-width: 6rem
-  margin-bottom: 1rem
+  min-width: 6em
+  max-width: 8em
+  margin-bottom: 1em
 .qty_outbox
-  // padding: auto 0 !important
-.qty_content
   display: flex
   flex-wrap: nowrap
 
 .btn
-  padding: 0 0.5rem
-  margin: 0 0.5rem
+  padding: 0 0.5em
+  margin: 0 0.5em
 
-@include media-breakpoint-down(md) 
+@media screen and (max-width: $tablet)
+  .outbox
+    font-size: .7rem
+  .pic_outbox
+    font-size: .6rem
   .btn
-    padding: 0 0.3rem
-    margin: 0 0.3rem  
-@include media-breakpoint-down(md) 
-  .title
-    font-size: 0.75rem
-    margin-bottom: 0.5rem
-  .id_title
-    font-size: 0.75rem
-  .btn
-    padding: 0 0.1rem
-    margin: 0 0.1rem 
-  th
-    padding: 0 !important
-    font-size: 0.75rem !important
-  td 
-    padding: 0 !important
+    font-size: .5rem

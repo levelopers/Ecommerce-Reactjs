@@ -63,6 +63,15 @@ export default class LoginSignin extends Component {
       this.props.submitAction(email, password)
         .then(res => {
           jumpTo('/dashboard')
+          // console.log(res)
+          // console.log('loginsignin res');
+          return res
+        })
+        .catch(error => {
+          // console.log('loginsignin error')
+          // console.log(error.response)
+          alert(error.response.data.error.message)
+          return error
         })
     }
     if (this.props.title === 'Signin') {
@@ -71,9 +80,9 @@ export default class LoginSignin extends Component {
         .then(res => {
           jumpTo('/login')
         })
-        .catch(err => {
-          jumpTo('/signin')
-          throw err
+        .catch(error => {
+          alert(error.response.data.error.message)
+          return error
         })
     }
   }
@@ -82,7 +91,7 @@ export default class LoginSignin extends Component {
       <div className={styles.outbox}>
         <div className={styles.box}>
           {this.props.loading &&
-            <LoadingAnimation/>
+            <LoadingAnimation />
           }
           <Base
             title={this.props.title}

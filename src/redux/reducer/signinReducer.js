@@ -13,14 +13,17 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case POST_SIGNIN_BEGIN:
       return {
+        ...state,
         signin_loading: true
       }
     case POST_SIGNIN_SUCCESS:
       return {
+        ...state,
         signin_loading: false,
       }
     case POST_SIGNIN_FAIL:
       return {
+        ...state,
         signin_loading: false,
         error: action.payload.error.response.data
       }

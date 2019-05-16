@@ -4,10 +4,12 @@
   display: flex
   flex-direction: column
   min-width: 320px
+  width: auto
   position: fixed
   top: 0
+  right: 0
+  left: 0
   z-index: 3
-  width: 100vw
   background: rgb(125,125,125)
 
 .content
@@ -54,9 +56,7 @@
 
   .toggle_outbox
     display: flex
-    // width: min-content
     width: 3rem
-    // height: max-content
     flex-wrap: nowrap
     position: absolute
     top: 0
@@ -74,15 +74,13 @@
         opacity: 0
       .bar3
         transform: rotate(45deg) translate(-8px, -8px)
-    
-  
 
   .bar1, .bar2, .bar3
     width: 2rem
     height: 0.3rem
-    background-color: #333;
-    margin: 6px 0;
-    transition: 0.4s;
+    background-color: #333
+    margin: 6px 0
+    transition: 0.4s
 
   .toggle_content
     width: 80vw
@@ -90,7 +88,7 @@
     height: 100vh
     background: rgb(125,125,125)
     color: white
-    z-index: 1000;  
+    z-index: 1000  
     display: flex
     flex-direction: column
 
@@ -110,21 +108,32 @@
     &:hover
       cursor: pointer
 
+  .side_content
+    padding: 0.8rem
+    font-size: .8rem
+    white-space: nowrap
+    display: flex
+    align-items: center
+    border-bottom: 1px solid rgba(0,0,0,.5)
+    &:hover
+      cursor: pointer
+      color: #0056b3
+
   #toggle
-    background-color: #FFE600;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow: scroll;
+    background-color: #FFE600
+    position: fixed
+    top: 0
+    left: 0
+    overflow: scroll
 
   .hide
     transform: translate3d(-80vw, 0, 0)
     transition: transform .5s linear
-    
     
   .show
     transform: translate3d(0vw, 0, 0)
     transition: transform .5s linear
     + .toggle_icon
       display: none
+      
   

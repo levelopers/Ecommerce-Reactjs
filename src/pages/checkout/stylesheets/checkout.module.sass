@@ -1,31 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import '../../../modules/mediaQuery/app'
 
   
 .outbox
-  width: 100vw
+  max-width: 100vw
+  min-width: 320px
   min-height: 100vh
   display: flex
   justify-content: center
   background: rgb(244, 244, 244)
+  font-size: 1rem
+
 .box
-  width: 50%
-  max-height: 100%
-  margin-top: 12vh
+  margin: 12vh 0
+  display: flex
+  justify-content: center
   
 .content
+  width: 60%
   background: white
   display: flex
   flex-direction: column
-  padding: 3%
-  margin: 2rem
+  padding: 2em
+  margin: 2em
 
 .title
   color: blue
-  font-size: 2rem
+  font-size: 2em
   font-family: 'Comfortaa', cursive;
 .sub_title
   color: black
-  font-size: 0.9rem
+  font-size: .5em
   display: block
   margin: 1% 0
   
@@ -52,5 +57,14 @@
       text-decoration: none
       color: black
       font-family: 'Comfortaa', cursive;
+
+
+@media screen and (max-width: $tablet)
+  .outbox
+    font-size: .7rem
+
+  .content
+    width: 80%
+
       
 

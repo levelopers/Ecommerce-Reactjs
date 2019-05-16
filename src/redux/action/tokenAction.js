@@ -10,6 +10,8 @@ export const postToken = (email, password) => dispatch => {
         type: POST_TOKEN_SUCCESS,
         payload: res
       })
+      // console.log('tokenAction res');
+      // console.log(res);
       return res
     })
     .catch(error => {
@@ -17,7 +19,9 @@ export const postToken = (email, password) => dispatch => {
         type: POST_TOKEN_FAIL,
         payload: { error }
       })
-      return error
+      // console.log('tokenAction error');
+      // console.log(error.response);
+      throw error
     })
 }
 

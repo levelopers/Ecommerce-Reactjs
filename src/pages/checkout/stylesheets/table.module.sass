@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import '../../../modules/mediaQuery/app'
   
 .outbox
   display: flex
@@ -6,24 +7,36 @@
 
 .row
   display: flex
+  justify-content: space-between
   margin: 3% 0
 .pic
-  max-width: 15%
-  margin-right: 3%
+  max-width: 6em
+  margin-right: 1em
   display: flex
   justify-content: center
   align-items: center
+  overflow: 
   img
     max-width: 70%
     border-radius: 10%
 
 .title
-  margin: 0 3%
-  font-size: 1rem
+  margin: 0 .3em
+  font-size: 1em
   font-family: sans-serif
 
 .price
   margin-left: auto
-  font-size: 1rem
+  font-size: 1em
   font-family: 'Comfortaa', cursive;
   font-weight: 600  
+
+
+@media screen and (max-width: $tablet)
+  .outbox
+    font-size: .7rem
+
+  .pic
+    font-size: .6rem
+  .price
+    font-size: .5rem

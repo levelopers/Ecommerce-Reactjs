@@ -1,24 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
-@import '~bootstrap/scss/_functions'
-@import '~bootstrap/scss/_variables'
-@import '~bootstrap/scss/mixins/_breakpoints'
+@import '../../../modules/mediaQuery/app'
+
   
 .outbox
-  width: 100vw
+  min-width: max-content
   min-width: 386px
   min-height: 100vh
   display: flex
   justify-content: center
   background: rgb(244, 244, 244)
+  font-size: 1rem
 
 .box
-  max-width: 60%
+  width: 100%
   margin-top: 12vh
+  display: flex
+  justify-content: center
+  align-items: center
+
 
 .content
   padding: 3%
-  margin: 3rem
+  margin: 4em
   background: white
+  min-width: max-content 
+  justify-content: center
+  align-items: center
+
 
 .title
   color: blue
@@ -27,6 +35,7 @@
 
 
 .table
+  width: max-content
   
 .process_box
   width: 100%
@@ -38,12 +47,14 @@
   font-size: 20px
   font-weight: bold
 
-@include media-breakpoint-down(md) 
-  .box
-    max-width: 70%
-@include media-breakpoint-down(sm) 
-  .box
-    max-width: 90%
-  .title
-    font-size: 1.5rem
+
+
+// @include media-breakpoint-down(md) 
+//   .box
+//     max-width: 70%
+// @include media-breakpoint-down(sm) 
+//   .box
+//     max-width: 90%
+//   .title
+//     font-size: 1.5rem
   

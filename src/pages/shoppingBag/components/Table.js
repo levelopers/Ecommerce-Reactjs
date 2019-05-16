@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap'
 
 export default function BagTable({ items, handleClick }) {
   return (
-    <div>
+    <div className={styles.outbox}>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -18,30 +18,31 @@ export default function BagTable({ items, handleClick }) {
         </thead>
         <tbody className={styles.table_body}>
           {Object.keys(items).map(id =>
+            // table row
             <tr key={id}>
-              {/* <td>
-                <div className={styles.id}>
-              {items[id].item._id}
-                </div>
-              </td> */}
-              <td className={styles.pic_outbox}>
-                <div className={styles.pic}>
+              {/* pic */}
+              <td >
+                <div className={styles.pic_outbox}>
                   <img src={items[id].item.imagePath} alt="" />
                 </div>
               </td>
-              <td className={styleMedia.title_outbox}>
-                <div className={styles.title}>
-                  {items[id].item.title}
+              {/* title */}
+              <td >
+                <div className={styles.title_outbox}>
+                  <div className={styles.title}>
+                    {items[id].item.title}
+                  </div>
+                  <div className={styles.id_title}>
+                    id:
                 </div>
-                <div className={styles.id_title}>
-                 id:
-                </div>
-                <div className={styles.id}>
-                  {items[id].item._id}
+                  <div className={styles.id}>
+                    {items[id].item._id}
+                  </div>
                 </div>
               </td>
-              <td className={styles.qty_outbox}>
-                <div className={styles.qty_content}>
+              {/* qty */}
+              <td >
+                <div className={styles.qty_outbox}>
                   <Button
                     variant="outline-secondary"
                     className={styles.btn}
@@ -59,6 +60,7 @@ export default function BagTable({ items, handleClick }) {
                  </Button>
                 </div>
               </td>
+              {/* price */}
               <td>{items[id].price}</td>
             </tr>
           )}

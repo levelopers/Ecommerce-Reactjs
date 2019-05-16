@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import DropList from './components/DropList'
 import styles from './stylesheets/header.module.sass'
-import AutoComplete from '../autoComplete/AutoCompleteContainer'
 import UserHeader from './components/UserHeader'
 import Menu from './components/Menu'
 import Search from './components/Search'
-import jumpTo from '../../modules/Navigation'
+import jumpTo,{go} from '../../modules/Navigation'
+import Auth from '../../modules/Auth'
 import device, { size } from '../../modules/mediaQuery'
 import MediaQuery from 'react-responsive'
 
@@ -119,6 +118,30 @@ export default class Header extends Component {
                     getProductsByCategory={getProductsByCategory}
                     getAllProducts={getAllProducts}
                   />
+                  <div className={styles.side_title}>
+                    CART
+                  </div>
+                  <div
+                    className={styles.side_content}
+                    onClick={() => jumpTo('/bag')}
+                  >
+                    Shopping Bag
+                  </div>
+                  <div className={styles.side_title}>
+                    USER
+                  </div>
+                  <div
+                    className={styles.side_content}
+                    onClick={() => jumpTo('/login')}
+                  >
+                    Login
+                  </div>
+                  <div
+                    className={styles.side_content}
+                    onClick={() => { Auth.logout(); go('/dashboard') }}
+                  >
+                    Logout
+                  </div>
                 </div>
               </div>
               {/* toggle icon */}

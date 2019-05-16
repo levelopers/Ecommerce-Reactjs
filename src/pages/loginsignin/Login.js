@@ -20,7 +20,7 @@ const INPUT_CONFIG = [
   }
 ]
 
-export default function Login({ postToken, login_loading }) {
+export default function Login({ postToken, login_loading, login_error }) {
   return (
     <div>
       <LoginSignin
@@ -30,6 +30,7 @@ export default function Login({ postToken, login_loading }) {
         footer_redirect="signin"
         submitAction={postToken}
         loading={login_loading}
+        login_error={login_error}
       />
     </div>
   )

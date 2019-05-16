@@ -1,6 +1,9 @@
+@import '../../../modules/mediaQuery/app'
+  
 .outbox
   display: flex
   flex-direction: column
+  font-size: 1em
 
 .subtotals
   display: flex
@@ -8,10 +11,14 @@
 .row
   display: flex
   justify-content: space-between
-  font-size: 1rem
+  font-size: 1em
   color: grey
-  margin: 0.1rem 0
+  margin: 0.1em 0
 .total
-  font-size: 1.2rem
+  font-size: 1.2em
   color: black
   font-weight: 500
+
+@media screen and (max-width: $tablet)
+  .outbox
+    font-size: .7rem

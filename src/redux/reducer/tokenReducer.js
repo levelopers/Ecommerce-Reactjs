@@ -35,11 +35,13 @@ export default (state = initialState, action) => {
       }
     case INSERT_TOKEN_SUCCESS:
       return {
+        ...state,
         user_token: action.payload,
         insert_token_error: false
       }
     case INSERT_TOKEN_FAIL:
       return {
+        ...state,
         insert_token_error: true
       }
     default:
