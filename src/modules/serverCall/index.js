@@ -30,6 +30,7 @@ const serverCall = (config) => {
       if(error.response.status===401){
         Auth.logout()
         jumpTo('/login')
+        throw error
       }
       return Promise.reject(error);
     });
