@@ -30,11 +30,19 @@ export default class Filter extends Component {
       isChecked = e.target.checked
     }
     this.setState(prevState => {
+      //add category value to array
       if (isChecked) {
+        //user can only select one order
+        if (category === 'order') {
+          return {
+            [category]: [tagName]
+          }
+        }
         return {
           [category]: [...prevState[category] || [], tagName]
         }
       } else {
+        //remove category value from array
         const new_prop_array = prevState[category].filter(n => n !== tagName)
         return {
           [category]: new_prop_array
