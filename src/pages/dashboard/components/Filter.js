@@ -11,8 +11,8 @@ export default class Filter extends Component {
     super(props)
     this.FILTER_CONFIG = {
       order: ['Ascending', 'Descending'],
-      department: ['Men', 'Women'],
-      price: ['Less Than $29', '$29 - $39', '$39 - $49', '$49 - $89', 'Greater Than $89']
+      department: ['Varones', 'Mujeres'],
+      price: ['Menos que $29', '$29 - $39', '$39 - $49', '$49 - $89', 'Greater Than $89']
     }
     this.initialState = {}
     this.state = this.initialState
@@ -92,7 +92,7 @@ export default class Filter extends Component {
                 {/* department */}
                 <div className={styles.block}>
                   <div className={styles.sub_title}>
-                    DEPARTMENT
+                    DEPARTAMENTO
                   </div>
                   {this.FILTER_CONFIG['department'].map(n =>
                     <Checkbox
