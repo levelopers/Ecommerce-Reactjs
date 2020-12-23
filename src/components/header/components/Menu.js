@@ -24,14 +24,14 @@ export default function Menu({
           </div>
         )}
       </div>
-      {/* all product */}
+      {/* Todos los Productos */}
       <div className={styles.tag}
         onClick={() => {
           getAllProducts()
           jumpTo('/dashboard')
         }}
       >
-        All Product
+        Todos los Productos
       </div>
     </div>
   )
