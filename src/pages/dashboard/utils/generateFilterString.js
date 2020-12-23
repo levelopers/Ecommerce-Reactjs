@@ -17,10 +17,10 @@ export default (state) => {
       for (const v of state[name]) {
         temp = v
       }
-      if (temp.toUpperCase() === 'ASCENDING') {
+      if (temp.toUpperCase() === 'ASCENDENTE') {
         order = 'order=price'
       }
-      if (temp.toUpperCase() === 'DESCENDING') {
+      if (temp.toUpperCase() === 'DESCENDENTE') {
         order = 'order=-price'
       }
     }
