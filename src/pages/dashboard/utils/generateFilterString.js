@@ -40,10 +40,10 @@ export default (state) => {
     if (name === 'price') {
       let _price_str_arr = []
       for (let p of state[name]) {
-        if (p.match(/less/i)) {
+        if (p.match(/menor/i)) {
           p = p.replace(/[\D]+/i, '0 - ')
         }
-        if (p.match(/greater/i)) {
+        if (p.match(/mayor/i)) {
           p = p.replace(/[\D]+/i, '').concat(' - 999')
         }
         _price_str_arr = _price_str_arr.concat(p.match(/[\d]+/g))
