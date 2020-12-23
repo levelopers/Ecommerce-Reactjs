@@ -10,7 +10,7 @@ export default class Filter extends Component {
   constructor(props) {
     super(props)
     this.FILTER_CONFIG = {
-      order: ['Ascending', 'Descending'],
+      order: ['Ascendente', 'Descendente'],
       department: ['Varones', 'Mujeres'],
       price: ['Menor que S/.29', 'S/.29 - S/.39', 'S/.39 - S/.49', 'S/.49 - S/.89', 'Mayor que S/.89']
     }
@@ -70,14 +70,14 @@ export default class Filter extends Component {
           <div className={styles.outbox}>
             <div className={styles.box}>
               <div className={styles.title}>
-                FILTERS
+                FILTROS
           <div className={styles.title_border}></div>
               </div>
               <div className={styles.content}>
                 {/* order */}
                 <div className={styles.block}>
                   <div className={styles.sub_title}>
-                    ORDER
+                    ORDEN
                   </div>
                   {this.FILTER_CONFIG['order'].map(n =>
                     <Checkbox
