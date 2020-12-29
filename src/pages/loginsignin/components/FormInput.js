@@ -4,6 +4,7 @@ import capitalizeString from '../utils/capitalizeString'
 
 
 export default function FormInput({
+  //title,
   name,
   validations,
   errorMessage,
@@ -13,13 +14,13 @@ export default function FormInput({
   return (
     <div className={styles.outbox}>
       <div className={styles.label}>
-        <label htmlFor={name}>{capitalizeString(name)}</label>
+        <label htmlFor={'Complete la Informacion'/*title*/}>{capitalizeString('Complete la Informacion'/*title*/)}</label>
       </div>
       <div className={styles.input}>
         <input
           type={name.indexOf('assword') > -1 ? 'password' : 'text'}
           name={name}
-          placeholder={name}
+          placeholder={''}
           onBlur={(e) => onBlur(e, validate(validations, e.target.value))}
           onFocus={onFocus}
         />
