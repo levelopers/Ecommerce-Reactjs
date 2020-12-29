@@ -11,10 +11,12 @@ import {
 
 const INPUT_CONFIG = [
   {
+    title: "Email", 
     name: "email",
     validations: [validateExistence, validateEmail]
   },
   {
+    //title: "Contraseña",
     name: "password",
     validations: [validateExistence, validateLength(6, 15), validateLowerCase, validateUpperCase]
   }
@@ -26,7 +28,7 @@ export default function Login({ postToken, login_loading, login_error }) {
       <LoginSignin
         INPUT_CONFIG={INPUT_CONFIG}
         title="Iniciar Sesion"
-        footer_text="¿Aun no tienes una cuenta"
+        footer_text="¿Aun no tienes una cuenta?"
         footer_redirect="signin"
         submitAction={postToken}
         loading={login_loading}
