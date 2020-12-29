@@ -23,7 +23,7 @@ export default function Search({
               search(input_value).then(res => jumpTo('/dashboard'))
             }}
           >
-            Search
+            Buscar
           </button>
         </div>
     </div>
