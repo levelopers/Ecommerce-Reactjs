@@ -11,12 +11,12 @@ import {
 
 const INPUT_CONFIG = [
   {
-    title: "Email", 
+    title: "Correo Electronico", 
     name: "email",
     validations: [validateExistence, validateEmail]
   },
   {
-    //title: "Contraseña",
+    title: "Contraseña",
     name: "password",
     validations: [validateExistence, validateLength(6, 15), validateLowerCase, validateUpperCase]
   }
