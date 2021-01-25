@@ -17,6 +17,9 @@ export default function UserHeader({ user_token }) {
             <NavDropdown.Item onClick={Auth.logout} href='/'>
               Salir
              </NavDropdown.Item>
+             <NavDropdown.Item onClick={() => jumpTo('/ingrese')}>
+              Ingrese Producto
+             </NavDropdown.Item>
           </NavDropdown>
         </div>
         : 
