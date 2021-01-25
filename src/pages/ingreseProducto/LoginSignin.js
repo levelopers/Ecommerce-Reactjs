@@ -75,16 +75,9 @@ export default class LoginSignin extends Component {
           return error
         })
     }
-    if (this.props.title === 'Registrarse') {
-      const { fullname, email, password, verifyPassword } = this.inputText
-      this.props.submitAction(fullname, email, password, verifyPassword)
-        .then(res => {
-          jumpTo('/login')
-        })
-        .catch(error => {
-          alert(error.response.data.error.message)
-          return error
-        })
+    if (this.props.title === 'Registrar Producto') {
+      alert("ESO ES TODO AMIGOS 😥")
+      //window.location.href = 'https://www.youtube.com/watch?v=BtLSaxRnIhc';
     }
   }
   render() {

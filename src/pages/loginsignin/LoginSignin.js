@@ -10,6 +10,7 @@ export default class LoginSignin extends Component {
   constructor(props) {
     super(props)
     this.state = {}
+    this.algo = "algo"
     this.inputText = {}
     for (const input of props.INPUT_CONFIG) {
       this.state[input.name] = { errorMsg: '' }
@@ -75,9 +76,10 @@ export default class LoginSignin extends Component {
         })
     }
     if (this.props.title === 'Registrarse') {
+      //desestructurando los input
       const { fullname, email, password, verifyPassword } = this.inputText
-      this.props.submitAction(fullname, email, password, verifyPassword)
-        .then(res => {
+      this.props.submitAction(fullname, email, password, verifyPassword)////////////////////
+        .then(res => {  
           jumpTo('/login')
         })
         .catch(error => {
