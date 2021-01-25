@@ -52,7 +52,6 @@ const INPUT_CONFIG = [
   {
     title: "Categoria",
     name: "categoria",
-
   },  
 ]
 
@@ -65,9 +64,9 @@ export default function Signin({signin,signin_loading,signin_error}) {
       title="Registrar Producto"
       footer_text="Asegurese de ingresar de manera correcta los datos de su producto"
       footer_redirect="Iniciar Sesion"
-      //submitAction={signin}
-      //loading={signin_loading}
-      //signin_error={signin_error}
+      submitAction={signin}
+      loading={signin_loading}
+      signin_error={signin_error}
       />
     </div>
   )
