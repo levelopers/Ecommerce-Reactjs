@@ -49,7 +49,7 @@ export default class AutoComplete extends Component {
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
           value={this.state.val}
-          placeholder="Search"
+          placeholder="Buscar"
         />
         <div className={styles.sugges_outbox}>
           {

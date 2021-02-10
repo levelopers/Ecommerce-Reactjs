@@ -11,25 +11,48 @@ import {
 
 const INPUT_CONFIG = [
   {
-    title: "Nombre Completo",
+    title: "Nombre",
     name: "fullname",
-    // validations: [validateLength()]
+
   },
   {
-    title: "Correo Electronico",
-    name: "email",
-    validations: [validateExistence, validateEmail]
+    title: "Descripcion",
+    name: "descripcion",
+
   },
   {
-    title: "Contraseña",
-    name: "password",
-    validations: [validateExistence, validateLength(6, 15), validateLowerCase, validateUpperCase]
+    title: "Link de la imagen",
+    name: "imagen",
+
   },
   {
-    title: "Verificar Contraseña",
-    name: "verifyPassword",
-    validations: [validateExistence, validateLength(6, 15), validateLowerCase, validateUpperCase]
+    title: "Tallas",
+    name: "tallas",
   },
+  {
+    title: "Precio",
+    name: "precio",
+
+  },
+  {
+    title: "Color",
+    name: "color",
+
+  },
+  {
+    title: "Cantidad",
+    name: "cantidad",
+
+  },
+  {
+    title: "Sexo",
+    name: "sexo",
+
+  },
+  {
+    title: "Categoria",
+    name: "categoria",
+  },  
 ]
 
 
@@ -38,8 +61,8 @@ export default function Signin({signin,signin_loading,signin_error}) {
     <div>
       <LoginSignin
       INPUT_CONFIG={INPUT_CONFIG}
-      title="Registrarse"
-      footer_text="¿Ya tienes una cuenta?"
+      title="Registrar Producto"
+      footer_text="Asegurese de ingresar de manera correcta los datos de su producto"
       footer_redirect="Iniciar Sesion"
       submitAction={signin}
       loading={signin_loading}

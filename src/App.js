@@ -4,6 +4,10 @@ import { connect } from 'react-redux'
 import { registerNav } from './modules/Navigation'
 import { insertToken } from './redux/action/tokenAction'
 import LoginContainer from './pages/loginsignin/LoginContainer'
+
+
+import IngreseProducto from './pages/ingreseProducto/SigninContainer'
+
 import SigninContainer from './pages/loginsignin/SigninContainer'
 import DashboardContainer from './pages/dashboard/DashboardContainer'
 import ProductOverview from './pages/productOverview/ProductOverviewContainer'
@@ -25,6 +29,7 @@ class App extends Component {
             <Route path="/login" component={LoginContainer} />
             <Route key="productOverview" path="/product-overview" component={ProductOverview} />,
             {this.props.token && [
+              <Route key="IngreseProducto" path="/ingrese" component={IngreseProducto} />,
               <Route key="ShoppingBagContainer" path="/bag" component={ShoppingBagContainer} />,
               <Route key="Checkout" path="/checkout" component={CheckoutContainer} />,
               <Route key="success" path="/success_page" component={CheckoutSuccessContainer} />,

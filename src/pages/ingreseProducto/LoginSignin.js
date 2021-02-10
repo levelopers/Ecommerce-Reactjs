@@ -4,13 +4,13 @@ import Base from './components/Base'
 import capitalizeString from './utils/capitalizeString'
 import jumpTo from '../../modules/Navigation'
 import LoadingAnimation from '../../components/loadingAnimation'
+import Header from '../../components/header/headerContainer'
 
 
 export default class LoginSignin extends Component {
   constructor(props) {
     super(props)
     this.state = {}
-    this.algo = "algo"
     this.inputText = {}
     for (const input of props.INPUT_CONFIG) {
       this.state[input.name] = { errorMsg: '' }
@@ -75,22 +75,18 @@ export default class LoginSignin extends Component {
           return error
         })
     }
-    if (this.props.title === 'Registrarse') {
-      //desestructurando los input
-      const { fullname, email, password, verifyPassword } = this.inputText
-      this.props.submitAction(fullname, email, password, verifyPassword)////////////////////
-        .then(res => {  
-          jumpTo('/login')
-        })
-        .catch(error => {
-          alert(error.response.data.error.message)
-          return error
-        })
+    if (this.props.title === 'Registrar Producto') {
+      alert("ESO ES TODO AMIGOS 😥")
+      //window.location.href = 'https://www.youtube.com/watch?v=BtLSaxRnIhc';
     }
   }
   render() {
     return (
       <div className={styles.outbox}>
+        <div className={styles.header}>
+          <Header />
+        </div>
+        
         <div className={styles.box}>
           {this.props.loading &&
             <LoadingAnimation />
@@ -105,9 +101,7 @@ export default class LoginSignin extends Component {
             button_title={this.props.title}
             footer_content={
               <div>
-                {this.props.footer_text} <a href={`/${this.props.footer_redirect}`}>
-                  {capitalizeString('click aqui')}
-                </a>
+                {this.props.footer_text} 
               </div>
             }
           />

@@ -20,10 +20,10 @@ export default function FormInput({
       <div className={styles.input}>
         <input
           /* tipo de texto que se ingresa*/
-          type={name.indexOf('assword') > -1 ? 'password' : 'text'}
+          type={'text'}
           name={name}
           /* texto que va en la parte interior del input como referencia */
-          placeholder={title}
+          placeholder={name}
           /* Ejecuta una funcion cuando el usuario abandona el campo de entrada*/
           onBlur={(e) => onBlur(e, validate(validations, e.target.value))}
            /* Ejecuta una funcion cuando el usuario se enfoca en el campo de entrada*/
