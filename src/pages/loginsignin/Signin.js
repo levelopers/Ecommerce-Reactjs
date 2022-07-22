@@ -11,18 +11,22 @@ import {
 
 const INPUT_CONFIG = [
   {
+    title: "Nombre Completo",
     name: "fullname",
     // validations: [validateLength()]
   },
   {
+    title: "Correo Electronico",
     name: "email",
     validations: [validateExistence, validateEmail]
   },
   {
+    title: "Contraseña",
     name: "password",
     validations: [validateExistence, validateLength(6, 15), validateLowerCase, validateUpperCase]
   },
   {
+    title: "Verificar Contraseña",
     name: "verifyPassword",
     validations: [validateExistence, validateLength(6, 15), validateLowerCase, validateUpperCase]
   },
@@ -34,9 +38,9 @@ export default function Signin({signin,signin_loading,signin_error}) {
     <div>
       <LoginSignin
       INPUT_CONFIG={INPUT_CONFIG}
-      title="Signin"
-      footer_text="Do you have an account?"
-      footer_redirect="login"
+      title="Registrarse"
+      footer_text="¿Ya tienes una cuenta?"
+      footer_redirect="Iniciar Sesion"
       submitAction={signin}
       loading={signin_loading}
       signin_error={signin_error}

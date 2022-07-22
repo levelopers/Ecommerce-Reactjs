@@ -58,7 +58,7 @@ export default class LoginSignin extends Component {
       console.log('valid fail');
       return
     }
-    if (this.props.title === 'Login') {
+    if (this.props.title === 'Iniciar Sesion') {
       const { email, password } = this.inputText
       this.props.submitAction(email, password)
         .then(res => {
@@ -74,7 +74,7 @@ export default class LoginSignin extends Component {
           return error
         })
     }
-    if (this.props.title === 'Signin') {
+    if (this.props.title === 'Registrarse') {
       const { fullname, email, password, verifyPassword } = this.inputText
       this.props.submitAction(fullname, email, password, verifyPassword)
         .then(res => {
@@ -104,7 +104,7 @@ export default class LoginSignin extends Component {
             footer_content={
               <div>
                 {this.props.footer_text} <a href={`/${this.props.footer_redirect}`}>
-                  {capitalizeString(this.props.footer_redirect)}
+                  {capitalizeString('click aqui')}
                 </a>
               </div>
             }

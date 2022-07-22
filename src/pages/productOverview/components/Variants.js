@@ -7,7 +7,7 @@ export default function Variants({ color, size, variants, selectedSize, handleCl
   return (
     <div>
       <div className={styles.color_title}>
-        COLOUR:
+        COLOR:
     </div>
       <div className={styles.color_name}>
         {color}
@@ -19,7 +19,7 @@ export default function Variants({ color, size, variants, selectedSize, handleCl
       </div>
       <div className={styles.sizes}>
         <div className={styles.size_title}>
-          SIZES:
+          TALLAS:
         </div>
         <div className={styles.size_name}>
           <Sizes
